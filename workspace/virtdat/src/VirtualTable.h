@@ -22,7 +22,7 @@ class VirtualTable {
 	vector< vector<char*> > row;
 public:
 	long long int getRowCount();
-	void getRow(map<string,string> criterion);
+	vector< vector<char*> > getRow(map<string,string> criterion);
 	short getColumCount();
 	void addRow(vector<char*> row);
 	VirtualTable();
