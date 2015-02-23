@@ -58,3 +58,9 @@ VirtualTable::~VirtualTable() {
 }
 
 } /* namespace std */
+
+namespace boost {
+namespace serialization {
+class access;
+}
+}
