@@ -21,12 +21,14 @@ class VirtualTable {
 	vector<VirtColum> colums;//holding the meta data about the virtTable;
 	vector<vector<char*> > row;//holding the rows;
 	friend class boost::serialization::access;
-
+	vector<string> tags;
 	template<typename Archive>
 	void serialize(Archive& ar, const unsigned version) {
-		ar & colums & row;
+		ar & colums & tags;
 	}
 public:
+	void addTag(string tag);
+	vector<string> getTags();
 	long long int getRowCount();
 	// Get row or rows by the given criterion.If no result was found will
 	// return empty vector.

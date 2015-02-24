@@ -60,13 +60,18 @@ void VirtualTable::addRow(vector<char*> newRow) {
 	}
 	this->row.push_back(newRow);
 }
+void  VirtualTable::addTag(string tag){
+	this->tags.push_back(tag);
+}
+vector<string> VirtualTable::getTags(){
+	return this->tags;
+}
 
 VirtualTable::VirtualTable(vector<VirtColum> columns) {
 	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
 }
 
 VirtualTable::~VirtualTable() {
-	// TODO Auto-generated destructor stub
 }
 
 } /* namespace std */

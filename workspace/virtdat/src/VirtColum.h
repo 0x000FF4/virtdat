@@ -20,8 +20,10 @@ class VirtColum {
 	TYPE type;
 	string name;
 	bool null;
+
 	bool autoIncrement;
 public:
+
 	string getName();
 	bool isNull();
 	bool isAutoIncrement();
