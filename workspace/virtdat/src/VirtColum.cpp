@@ -9,15 +9,25 @@
 
 namespace std {
 
+bool VirtColum::isNull(){
+	return this->null;
+}
+
+bool VirtColum::isAutoIncrement(){
+	return this->autoIncrement;
+}
+
 TYPE VirtColum::getType(){
 	return this->type;
 }
 string VirtColum::getName(){
 	return this->name;
 }
-VirtColum::VirtColum(string newName ,TYPE newType) {
-	this->type = newType;
-	this->name = newName;
+VirtColum::VirtColum(string name ,TYPE type,bool null = true, bool autoIncrement =  false) {
+	this->type = type;
+	this->name = name;
+	this->null = null;
+	this->autoIncrement = autoIncrement;
 }
 
 VirtColum::~VirtColum() {

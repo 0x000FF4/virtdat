@@ -19,11 +19,15 @@ enum TYPE{
 class VirtColum {
 	TYPE type;
 	string name;
+	bool null;
+	bool autoIncrement;
 public:
 	string getName();
 	void addRow();
+	bool isNull();
+	bool isAutoIncrement();
 	TYPE getType();
-	VirtColum(string newName ,TYPE newType);
+	VirtColum(string name ,TYPE type,bool null, bool autoIncremen);
 	virtual ~VirtColum();
 };
 

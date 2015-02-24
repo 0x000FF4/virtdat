@@ -32,7 +32,7 @@ public:
 	vector<vector<char*> > getRow(map<string, string> criterion);
 	short getColumCount();
 	void addRow(vector<char*> row);
-	VirtualTable();
+	VirtualTable(vector<VirtColum> colums);
 	virtual ~VirtualTable();
 };
 
