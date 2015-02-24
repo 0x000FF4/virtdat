@@ -23,10 +23,23 @@ class VirtColum {
 	bool autoIncrement;
 public:
 	string getName();
-	void addRow();
 	bool isNull();
 	bool isAutoIncrement();
 	TYPE getType();
+	// The constructor for the column
+	 /*!
+	  *\param name - the name of the column.It can`t be changed after
+	  *\the construction of the object because to keep integrity.
+	  *\
+	  *\param type - the type of the column(text,boolean,integer,blob or real).
+	  *\It can`t be changed after the construction of the object because to keep integrity.
+	  *\
+	  *\param null - set the permission of the block in this column to be null.
+	  *\It can`t be changed after the construction of the object because to keep integrity.
+	  *\
+	  *\param autoIncrement - set the autoIncrement option for this column.
+	  *\It can`t be changed after the construction of the object because to keep integrity.
+	  */
 	VirtColum(string name ,TYPE type,bool null, bool autoIncremen);
 	virtual ~VirtColum();
 };

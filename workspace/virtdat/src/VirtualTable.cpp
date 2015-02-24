@@ -49,7 +49,7 @@ void VirtualTable::addRow(vector<char*> newRow) {
 		for (vector<VirtColum>::iterator it = colums.begin();
 				it != colums.end(); ++it) {
 			if (it->isNull() && (*itRow) == '\0') {
-				throw 1;
+				throw invalid_argument("this column must be notNULL but it is null");
 			}
 			if (it->isAutoIncrement() && this->row.size() > 0) {
 					char* block = newRow.back();
@@ -61,8 +61,8 @@ void VirtualTable::addRow(vector<char*> newRow) {
 	this->row.push_back(newRow);
 }
 
-VirtualTable::VirtualTable(vector<VirtColum> colums) {
-	this->colums.insert(this->colums.end(), colums.begin(), colums.end());
+VirtualTable::VirtualTable(vector<VirtColum> columns) {
+	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
 }
 
 VirtualTable::~VirtualTable() {
