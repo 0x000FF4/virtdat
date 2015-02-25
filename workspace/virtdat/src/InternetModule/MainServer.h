@@ -9,9 +9,8 @@
 #define INTERNETMODULE_MAINSERVER_H_
 #include <boost/asio.hpp>
 
-
-
 class MainServer {
+
 public:
 	MainServer();
 	virtual ~MainServer();
