@@ -18,6 +18,7 @@ namespace std {
 
 class VirtualTable {
 
+	string name;
 	vector<VirtColum> colums;//holding the meta data about the virtTable;
 	vector<vector<char*> > row;//holding the rows;
 	friend class boost::serialization::access;
@@ -27,6 +28,8 @@ class VirtualTable {
 		ar & colums & tags;
 	}
 public:
+	void setName(string name);
+	string getName();
 	void addTag(string tag);
 	vector<string> getTags();
 	long long int getRowCount();
@@ -53,6 +56,8 @@ public:
 	  * \point in this.
 	  */
 	VirtualTable(vector<VirtColum> columns);
+	VirtualTable(string name,vector<VirtColum> columns);
+	VirtualTable(string name,vector<VirtColum> columns,vector<string> tags);
 	virtual ~VirtualTable();
 };
 

@@ -16,7 +16,12 @@ long long int VirtualTable::getRowCount() {
 short VirtualTable::getColumCount() {
 	return this->colums.size();
 }
-
+void VirtualTable::setName(string name) {
+	this->name = name;
+}
+string VirtualTable::getName() {
+	return this->name;
+}
 vector<vector<char*> > VirtualTable::getRow(map<string, string> criterion) {
 	vector<vector<char*> > result;
 	vector<VirtColum>::iterator itCol;
@@ -49,28 +54,38 @@ void VirtualTable::addRow(vector<char*> newRow) {
 		for (vector<VirtColum>::iterator it = colums.begin();
 				it != colums.end(); ++it) {
 			if (it->isNull() && (*itRow) == '\0') {
-				throw invalid_argument("this column must be notNULL but it is null");
+				throw invalid_argument(
+						"this column must be notNULL but it is null");
 			}
 			if (it->isAutoIncrement() && this->row.size() > 0) {
-					char* block = newRow.back();
-					*block += 1;
-					newRow.at(newRow.begin() - itRow) = ++(block);
+				char* block = newRow.back();
+				*block += 1;
+				newRow.at(newRow.begin() - itRow) = ++(block);
 			}
 		}
 	}
 	this->row.push_back(newRow);
 }
-void  VirtualTable::addTag(string tag){
+void VirtualTable::addTag(string tag) {
 	this->tags.push_back(tag);
 }
-vector<string> VirtualTable::getTags(){
+vector<string> VirtualTable::getTags() {
 	return this->tags;
 }
 
 VirtualTable::VirtualTable(vector<VirtColum> columns) {
 	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
 }
-
+VirtualTable::VirtualTable(string name, vector<VirtColum> columns) {
+	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
+	this->name = name;
+}
+VirtualTable::VirtualTable(string name, vector<VirtColum> columns,
+		vector<string> tags) {
+	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
+	this->tags.insert(this->tags.end(), tags.begin(), tags.end());
+	this->name = name;
+}
 VirtualTable::~VirtualTable() {
 }
 

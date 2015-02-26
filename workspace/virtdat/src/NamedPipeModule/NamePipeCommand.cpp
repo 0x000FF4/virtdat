@@ -12,10 +12,11 @@
 
 using namespace std;
 void *NamePipeCommand::readPipe(void *threadid){
-
+	int readedSize = 0;
     while (true) {
-    	std::fread(NamePipeCommand::readBuffer,200,1,readP);
+    	readedSize = std::fread(NamePipeCommand::readBuffer,200,1,readP);
     }
+    readedSize+=1;
 	return NULL;
 }
 void *NamePipeCommand::writePipe(void *threadid){
