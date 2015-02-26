@@ -9,11 +9,10 @@
 #define PLUGINMODULE_COMMANDCLASS_H_
 #include "../VirtColum.h"
 #include <vector>
+
 class CommandClass {
 public:
-	void CreateTable(std::vector<std::VirtColum> columns);
-	void CreateTable(std::string name,std::vector<std::VirtColum> columns);
-	void CreateTable(std::string name,std::vector<std::VirtColum> columns,std::vector<std::string> tags);
+	void CreateTable(std::vector<std::VirtColum> columns,std::string name,std::vector<std::string> tags);
 	CommandClass();
 	virtual ~CommandClass();
 };

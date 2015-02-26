@@ -7,13 +7,9 @@
 
 #include "CommandClass.h"
 
-void CommandClass::CreateTable(std::vector<std::VirtColum> columns){
-
-}
-void CommandClass::CreateTable(std::string name,std::vector<std::VirtColum> columns){
-
-}
-void CommandClass::CreateTable(std::string name,std::vector<std::VirtColum> columns,std::vector<std::string> tags){
+void CommandClass::CreateTable(std::vector<std::VirtColum> columns,
+		std::string name = "",
+		std::vector<std::string> tags = std::vector<std::string>()) {
 
 }
 CommandClass::CommandClass() {
