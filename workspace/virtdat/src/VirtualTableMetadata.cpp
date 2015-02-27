@@ -6,6 +6,8 @@
  */
 
 #include "VirtualTableMetadata.h"
+#include <boost/archive/binary_iarchive.hpp>
+#include <boost/archive/binary_oarchive.hpp>
 
 VirtualTableMetadata::VirtualTableMetadata(std::string name,std::vector<std::VirtColum> columns,std::vector<std::string> tags) :
 std::VirtualTable( name, columns, tags) {

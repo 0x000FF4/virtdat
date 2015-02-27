@@ -8,11 +8,14 @@
 #ifndef VIRTUALTABLEMETADATA_H_
 #define VIRTUALTABLEMETADATA_H_
 #include "VirtualTable.h"
+#include <boost/serialization/vector.hpp>
+#include <boost/serialization/utility.hpp>
+
 class VirtualTableMetadata : public std::VirtualTable {
 	friend class boost::serialization::access;
 	template<typename Archive>
 	void serialize(Archive& ar, const unsigned version) {
-		ar & std::VirtualTable::getColumns() & std::VirtualTable::getTags();
+		ar & name & colums & tags;
 	};
 public:
 	VirtualTableMetadata(std::string name,std::vector<std::VirtColum> columns,std::vector<std::string> tags);

@@ -7,20 +7,27 @@
 
 #include "SerializationManager.h"
 
-
-void SerializationManager::Serialize(std::vector<std::VirtualTable> tables){
-	for(std::vector<std::VirtualTable>::iterator  it = tables.begin(); it!= tables.end(); ++it){
-
+void SerializationManager::Serialize(std::vector<std::VirtualTable> tables) {
+	std::list<VirtualTableMetadata*> metadata;
+	for (std::vector<std::VirtualTable>::iterator it = tables.begin();
+			it != tables.end(); ++it) {
+		metadata.push_back(it->getMetadata());
+	}
+	for (std::list<VirtualTableMetadata*>::iterator itMeta =
+			metadata.begin(); itMeta != metadata.end();++itMeta) {
+		VirtualTableMetadata* metaPointer = *itMeta;
+		(*this->archive)<< (metaPointer);
 	}
 }
-std::string SerializationManager::getTableTomb(){
+std::string SerializationManager::getTableTomb() {
 	return this->tableTomb;
 }
-void SerializationManager::setTableTomb(std::string tableTomb){
+void SerializationManager::setTableTomb(std::string tableTomb) {
 	this->tableTomb = tableTomb;
 }
 SerializationManager::SerializationManager() {
 	this->ofs.open(this->tableTomb.c_str());
+	this->archive = new boost::archive::text_oarchive(this->ofs);
 }
 
 SerializationManager::~SerializationManager() {

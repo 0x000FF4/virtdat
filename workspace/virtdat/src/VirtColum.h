@@ -20,10 +20,12 @@ class VirtColum {
 	TYPE type;
 	string name;
 	bool null;
-
 	bool autoIncrement;
 public:
-
+	template<typename Archive>
+	void serialize(Archive& ar, const unsigned version) {
+		ar & name & null & autoIncrement & type;
+	};
 	string getName();
 	bool isNull();
 	bool isAutoIncrement();

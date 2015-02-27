@@ -11,9 +11,11 @@
 #include <iostream>
 #include <fstream>
 #include "../VirtualTable.h"
+#include "../VirtualTableMetadata.h"
 class SerializationManager {
 	std::string tableTomb;
 	std::ofstream ofs;
+	boost::archive::text_oarchive *archive;
 public:
 	void Serialize(std::vector<std::VirtualTable> tables);
 	std::vector<std::VirtualTable>  Deserialize();

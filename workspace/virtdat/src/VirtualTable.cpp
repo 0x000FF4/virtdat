@@ -25,6 +25,9 @@ short VirtualTable::getColumCount() {
 void VirtualTable::setName(string name) {
 	this->name = name;
 }
+int VirtualTable::getInt(){
+	return 33;
+}
 string VirtualTable::getName() {
 	return this->name;
 }
