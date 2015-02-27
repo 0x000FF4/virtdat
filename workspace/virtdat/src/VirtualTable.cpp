@@ -6,13 +6,19 @@
  */
 
 #include "VirtualTable.h"
-
+#include "VirtualTableMetadata.h"
 namespace std {
 
 long long int VirtualTable::getRowCount() {
 	return this->row.size();
 }
-
+vector<VirtColum> VirtualTable::getColumns(){
+	return this->colums;
+}
+VirtualTableMetadata* VirtualTable::getMetadata(){
+	VirtualTableMetadata* metadata = new VirtualTableMetadata(this->name,this->colums,this->tags);
+	return metadata;
+}
 short VirtualTable::getColumCount() {
 	return this->colums.size();
 }

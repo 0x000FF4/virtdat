@@ -14,6 +14,7 @@
 #include "VirtColum.h"
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
+class VirtualTableMetadata;
 namespace std {
 
 class VirtualTable {
@@ -21,17 +22,16 @@ class VirtualTable {
 	string name;
 	vector<VirtColum> colums;//holding the meta data about the virtTable;
 	vector<vector<char*> > row;//holding the rows;
-	friend class boost::serialization::access;
+
 	vector<string> tags;
-	template<typename Archive>
-	void serialize(Archive& ar, const unsigned version) {
-		ar & colums & tags;
-	}
+
 public:
 	void setName(string name);
 	string getName();
 	void addTag(string tag);
 	vector<string> getTags();
+	vector<VirtColum> getColumns();
+	VirtualTableMetadata* getMetadata();
 	long long int getRowCount();
 	// Get row or rows by the given criterion.If no result was found will
 	// return empty vector.
