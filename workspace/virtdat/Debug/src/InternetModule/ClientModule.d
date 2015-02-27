@@ -1,5 +1,5 @@
-src/InternetModule/MainServer.d: ../src/InternetModule/MainServer.cpp \
- ../src/InternetModule/MainServer.h ../src/InternetModule/ServerModule.h \
+src/InternetModule/ClientModule.d: ../src/InternetModule/ClientModule.cpp \
+ ../src/InternetModule/ClientModule.h \
  /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/bio.h \
  /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/e_os2.h \
  /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/opensslconf.h \
@@ -39,12 +39,9 @@ src/InternetModule/MainServer.d: ../src/InternetModule/MainServer.cpp \
  /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/pqueue.h \
  /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/ssl23.h \
  /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/srtp.h \
- /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/err.h \
- ../src/InternetModule/ClientModule.h
+ /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/err.h
 
-../src/InternetModule/MainServer.h:
-
-../src/InternetModule/ServerModule.h:
+../src/InternetModule/ClientModule.h:
 
 /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/bio.h:
 
@@ -125,5 +122,3 @@ src/InternetModule/MainServer.d: ../src/InternetModule/MainServer.cpp \
 /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/srtp.h:
 
 /home/x000ff4/Свалени/openssl-1.0.2/include/openssl/err.h:
-
-../src/InternetModule/ClientModule.h:

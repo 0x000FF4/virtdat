@@ -16,6 +16,7 @@ vector<VirtColum> VirtualTable::getColumns(){
 	return this->colums;
 }
 VirtualTableMetadata* VirtualTable::getMetadata(){
+
 	VirtualTableMetadata* metadata = new VirtualTableMetadata(this->name,this->colums,this->tags);
 	return metadata;
 }
