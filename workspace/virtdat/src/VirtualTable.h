@@ -56,9 +56,8 @@ public:
 	  * \param columns - the meta data of the current table.Can be with size zero but there is not
 	  * \point in this.
 	  */
-	VirtualTable(vector<VirtColum> columns);
-	VirtualTable(string name,vector<VirtColum> columns);
-	VirtualTable(string name,vector<VirtColum> columns,vector<string> tags);
+
+	VirtualTable(vector<VirtColum> columns ,string name = "",vector<string> tags = {});
 	virtual ~VirtualTable();
 };
 

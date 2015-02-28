@@ -83,15 +83,14 @@ vector<string> VirtualTable::getTags() {
 	return this->tags;
 }
 
-VirtualTable::VirtualTable(vector<VirtColum> columns) {
-	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
-}
-VirtualTable::VirtualTable(string name, vector<VirtColum> columns) {
-	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
-	this->name = name;
-}
-VirtualTable::VirtualTable(string name, vector<VirtColum> columns,
-		vector<string> tags) {
+//VirtualTable::VirtualTable(vector<VirtColum> columns) {
+//	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
+//}
+//VirtualTable::VirtualTable(string name, vector<VirtColum> columns) {
+//	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
+//	this->name = name;
+//}
+VirtualTable::VirtualTable(vector<VirtColum> columns,string name , vector<string> tags ){
 	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
 	this->tags.insert(this->tags.end(), tags.begin(), tags.end());
 	this->name = name;

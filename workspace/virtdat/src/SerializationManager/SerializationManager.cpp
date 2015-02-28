@@ -7,11 +7,15 @@
 
 #include "SerializationManager.h"
 
-void SerializationManager::Serialize(std::vector<std::VirtualTable> tables) {
+SerializationManager& SerializationManager::getInstance(){
+	static SerializationManager instance;
+	return instance;
+}
+void SerializationManager::Serialize(std::vector<std::VirtualTable*> *tables) {
 	std::list<VirtualTableMetadata*> metadata;
-	for (std::vector<std::VirtualTable>::iterator it = tables.begin();
-			it != tables.end(); ++it) {
-		metadata.push_back(it->getMetadata());
+	for (std::vector<std::VirtualTable*>::iterator it = tables->begin();
+			it !=  tables->end(); ++it) {
+		metadata.push_back((*it)->getMetadata());
 	}
 	for (std::list<VirtualTableMetadata*>::iterator itMeta =
 			metadata.begin(); itMeta != metadata.end();++itMeta) {

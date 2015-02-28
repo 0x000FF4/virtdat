@@ -28,4 +28,6 @@ src/SerializationManager \
 src/PluginModule \
 src/NamedPipeModule \
 src/InternetModule \
+src/GuiModule \
+src/CommandAndControllModule \
 
