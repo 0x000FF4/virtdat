@@ -12,7 +12,6 @@
 #include "openssl/ssl.h"
 #include "openssl/err.h"
 #include <openssl/evp.h>
-#include <iostream>
 
 class ClientModule {
 	BIO * bioClient;
@@ -24,7 +23,7 @@ class ClientModule {
 
 public:
 	ClientModule();
-	virtual ~ClientModule();
+   ~ClientModule();
 	void readData();
 	void writeData();
 };

@@ -15,7 +15,7 @@ void ClientModule::readData() {
 				continue;
 			} else {
 				if (!BIO_should_retry(this->bioClient)) {
-					std::cerr << "error while reading internet client module";
+					//std::cerr << "error while reading internet client module";
 					continue;
 				}
 			}
@@ -31,7 +31,7 @@ void ClientModule::writeData() {
 			isReaded = BIO_write(this->bioClient, buffer, BUFFER_LENGHT);
 
 			if (!BIO_should_retry(this->bioClient)) {
-				std::cerr << "error while reading internet client module";
+				//std::cerr << "error while reading internet client module";
 				continue;
 			}
 		}
@@ -50,14 +50,14 @@ ClientModule::ClientModule() {
 			"/tmp/virtdata", "cert");
 	if (this->errorVerifyCert == 0) {
 		ERR_print_errors_fp(stderr);
-		std::cout << 'Error:' << stderr;
+		//std::cout << 'Error:' << stderr;
 		abort();
 	}
 	this->bioClient = BIO_new_ssl_connect(this->clientContext);
 	BIO_get_ssl(this->bioClient, this->ssl);
 	if ((this->ssl) == 0) {
 		ERR_print_errors_fp(stderr);
-		std::cout << 'Error:' << stderr;
+		//std::cout << 'Error:' << stderr;
 		abort();
 	}
 	SSL_set_mode(this->ssl, SSL_MODE_AUTO_RETRY);
@@ -65,15 +65,20 @@ ClientModule::ClientModule() {
 
 	if (BIO_do_connect(this->bioClient) < 1) {
 
-		std::cerr << "cannot to connect to the server";
+		//std::cerr << "cannot to connect to the server";
 	}
 
 	if (SSL_get_verify_result(this->ssl) != X509_V_OK) {
-		std::cerr << "cannot verify connection";
+		//std::cerr << "cannot verify connection";
 	}
 }
 
 ClientModule::~ClientModule() {
-	// TODO Auto-generated destructor stub
+	ERR_free_strings ();
+
+	EVP_cleanup ();
+	// this seems to cause double-frees for me: ENGINE_cleanup ();
+
+	ERR_remove_state (0);
 }
 

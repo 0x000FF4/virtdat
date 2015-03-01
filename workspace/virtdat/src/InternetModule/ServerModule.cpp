@@ -18,14 +18,14 @@ ServerModule::ServerModule() {
 			"/tmp/virtdata", "cert");
 	if (this->errorVerifyCert == 0) {
 		ERR_print_errors_fp(stderr);
-		std::cout << 'Error:' << stderr;
+		//std::cout << 'Error:' << stderr;
 		abort();
 	}
 	this->bioServer = BIO_new_ssl_connect(this->serverContext);
 	BIO_get_ssl(this->bioServer, this->ssl);
 	if ((this->ssl) == 0) {
 		ERR_print_errors_fp(stderr);
-		std::cout << 'Error:' << stderr;
+		//std::cout << 'Error:' << stderr;
 		abort();
 	}
 	SSL_set_mode(this->ssl, SSL_MODE_AUTO_RETRY);
@@ -33,11 +33,11 @@ ServerModule::ServerModule() {
 
 	if (BIO_do_connect(this->bioServer) < 1) {
 
-		std::cerr << "cannot to connect to the server";
+		//std::cerr << "cannot to connect to the server";
 	}
 
 	if (SSL_get_verify_result(this->ssl) != X509_V_OK) {
-		std::cerr << "cannot verify connection";
+		//std::cerr << "cannot verify connection";
 	}
 
 }

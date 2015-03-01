@@ -7,14 +7,14 @@
 
 #include "CommandAndControll.h"
 #include "../VirtualTable.h"
-#include "../SerializationManager/SerializationManager.h"
+//#include "../SerializationManager/SerializationManager.h"
 void CommandAndControll::createTable(std::vector<std::VirtColum> columns ,std::string name,std::vector<std::string> tags ){
 	std::VirtualTable *newTable = new std::VirtualTable(columns,name,tags);
 	VirtTableHolder::getInstance().addTable(newTable);
 }
 void CommandAndControll::serializeAllTables(){
 	std::vector<std::VirtualTable*> *tables = VirtTableHolder::getInstance().getTables();
-	SerializationManager::getInstance().Serialize(tables);
+//	SerializationManager::getInstance().Serialize(tables);
 }
 
 CommandAndControll::CommandAndControll() {
