@@ -49,7 +49,7 @@ all: libvirtdat
 libvirtdat: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	g++ -shared -o "libvirtdat" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ `pkg-config --libs  --cflags gtk+-3.0` -shared -o "libvirtdat" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
