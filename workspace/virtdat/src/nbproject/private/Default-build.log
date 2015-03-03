@@ -1,0 +1,85 @@
+Building file: ../src/PluginModule/CommandClass.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/PluginModule/CommandClass.d" -MT"src/PluginModule/CommandClass.d" -o "src/PluginModule/CommandClass.o" "../src/PluginModule/CommandClass.cpp"
+Finished building: ../src/PluginModule/CommandClass.cpp
+ 
+Building file: ../src/NamedPipeModule/NamePipeCommand.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/NamedPipeModule/NamePipeCommand.d" -MT"src/NamedPipeModule/NamePipeCommand.d" -o "src/NamedPipeModule/NamePipeCommand.o" "../src/NamedPipeModule/NamePipeCommand.cpp"
+Finished building: ../src/NamedPipeModule/NamePipeCommand.cpp
+ 
+Building file: ../src/InternetModule/ClientModule.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/InternetModule/ClientModule.d" -MT"src/InternetModule/ClientModule.d" -o "src/InternetModule/ClientModule.o" "../src/InternetModule/ClientModule.cpp"
+Finished building: ../src/InternetModule/ClientModule.cpp
+ 
+Building file: ../src/InternetModule/MainServer.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/InternetModule/MainServer.d" -MT"src/InternetModule/MainServer.d" -o "src/InternetModule/MainServer.o" "../src/InternetModule/MainServer.cpp"
+Finished building: ../src/InternetModule/MainServer.cpp
+ 
+Building file: ../src/InternetModule/ServerModule.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/InternetModule/ServerModule.d" -MT"src/InternetModule/ServerModule.d" -o "src/InternetModule/ServerModule.o" "../src/InternetModule/ServerModule.cpp"
+Finished building: ../src/InternetModule/ServerModule.cpp
+ 
+Building file: ../src/GuiModule/main.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/GuiModule/main.d" -MT"src/GuiModule/main.d" -o "src/GuiModule/main.o" "../src/GuiModule/main.cpp"
+Finished building: ../src/GuiModule/main.cpp
+ 
+Building file: ../src/CommandAndControllModule/CommandAndControll.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/CommandAndControllModule/CommandAndControll.d" -MT"src/CommandAndControllModule/CommandAndControll.d" -o "src/CommandAndControllModule/CommandAndControll.o" "../src/CommandAndControllModule/CommandAndControll.cpp"
+In file included from ../src/CommandAndControllModule/CommandAndControll.h:10:0,
+                 from ../src/CommandAndControllModule/CommandAndControll.cpp:8:
+../src/CommandAndControllModule/VirtTableHolder.h: In member function ‘VirtTableHolder& VirtTableHolder::operator=(const VirtTableHolder&)’:
+../src/CommandAndControllModule/VirtTableHolder.h:16:53: warning: no return statement in function returning non-void [-Wreturn-type]
+  VirtTableHolder& operator=(const VirtTableHolder&){};
+                                                     ^
+../src/CommandAndControllModule/CommandAndControll.cpp: In member function ‘void CommandAndControll::serializeAllTables()’:
+../src/CommandAndControllModule/CommandAndControll.cpp:16:35: warning: unused variable ‘tables’ [-Wunused-variable]
+  std::vector<std::VirtualTable*> *tables = VirtTableHolder::getInstance().getTables();
+                                   ^
+Finished building: ../src/CommandAndControllModule/CommandAndControll.cpp
+ 
+Building file: ../src/CommandAndControllModule/VirtTableHolder.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/CommandAndControllModule/VirtTableHolder.d" -MT"src/CommandAndControllModule/VirtTableHolder.d" -o "src/CommandAndControllModule/VirtTableHolder.o" "../src/CommandAndControllModule/VirtTableHolder.cpp"
+In file included from ../src/CommandAndControllModule/VirtTableHolder.cpp:8:0:
+../src/CommandAndControllModule/VirtTableHolder.h: In member function ‘VirtTableHolder& VirtTableHolder::operator=(const VirtTableHolder&)’:
+../src/CommandAndControllModule/VirtTableHolder.h:16:53: warning: no return statement in function returning non-void [-Wreturn-type]
+  VirtTableHolder& operator=(const VirtTableHolder&){};
+                                                     ^
+Finished building: ../src/CommandAndControllModule/VirtTableHolder.cpp
+ 
+Building file: ../src/VirtColum.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/VirtColum.d" -MT"src/VirtColum.d" -o "src/VirtColum.o" "../src/VirtColum.cpp"
+Finished building: ../src/VirtColum.cpp
+ 
+Building file: ../src/VirtualTable.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/VirtualTable.d" -MT"src/VirtualTable.d" -o "src/VirtualTable.o" "../src/VirtualTable.cpp"
+Finished building: ../src/VirtualTable.cpp
+ 
+Building file: ../src/VirtualTableMetadata.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/VirtualTableMetadata.d" -MT"src/VirtualTableMetadata.d" -o "src/VirtualTableMetadata.o" "../src/VirtualTableMetadata.cpp"
+Finished building: ../src/VirtualTableMetadata.cpp
+ 
+Building file: ../src/VritualIntegrityChecker.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/VritualIntegrityChecker.d" -MT"src/VritualIntegrityChecker.d" -o "src/VritualIntegrityChecker.o" "../src/VritualIntegrityChecker.cpp"
+Finished building: ../src/VritualIntegrityChecker.cpp
+ 
+Building file: ../src/virtdat.cpp
+Invoking: Cross G++ Compiler
+g++ -I/usr/include/boost/python/detail -I/usr/include/atk-1.0/ -I/usr/include/gdk-pixbuf-2.0/ -I/usr/include/cairo/ -I/usr/include/pango-1.0/ -I/usr/lib/x86_64-linux-gnu/glib-2.0/include/ -I/usr/include/glib-2.0/ -I/usr/include/gtk-3.0/ -I/home/x000ff4/Свалени/openssl-1.0.2/include -I/usr/include/python2.7 -I/home/x000ff4/Свалени/boost_1_57_0/boost/python/detail -O2 -g -Wall -c -fmessage-length=0 -std=c++11   `pkg-config --libs  --cflags gtk+-3.0` -fPIC -MMD -MP -MF"src/virtdat.d" -MT"src/virtdat.d" -o "src/virtdat.o" "../src/virtdat.cpp"
+Finished building: ../src/virtdat.cpp
+ 
+Building target: libvirtdat
+Invoking: Cross G++ Linker
+g++ `pkg-config --libs  --cflags gtk+-3.0` -shared -o "libvirtdat"  ./src/PluginModule/CommandClass.o  ./src/NamedPipeModule/NamePipeCommand.o  ./src/InternetModule/ClientModule.o ./src/InternetModule/MainServer.o ./src/InternetModule/ServerModule.o  ./src/GuiModule/main.o  ./src/CommandAndControllModule/CommandAndControll.o ./src/CommandAndControllModule/VirtTableHolder.o  ./src/VirtColum.o ./src/VirtualTable.o ./src/VirtualTableMetadata.o ./src/VritualIntegrityChecker.o ./src/virtdat.o   
+Finished building target: libvirtdat
+ 

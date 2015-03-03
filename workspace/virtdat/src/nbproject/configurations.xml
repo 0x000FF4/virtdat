@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="CommandAndControllModule">
+        <in>CommandAndControll.cpp</in>
+        <in>VirtTableHolder.cpp</in>
+      </df>
+      <df name="GuiModule">
+        <in>main.cpp</in>
+      </df>
+      <df name="InternetModule">
+        <in>ClientModule.cpp</in>
+        <in>MainServer.cpp</in>
+        <in>ServerModule.cpp</in>
+      </df>
+      <df name="NamedPipeModule">
+        <in>NamePipeCommand.cpp</in>
+      </df>
+      <df name="PluginModule">
+        <in>CommandClass.cpp</in>
+      </df>
+      <in>VirtColum.cpp</in>
+      <in>VirtualTable.cpp</in>
+      <in>VirtualTableMetadata.cpp</in>
+      <in>VritualIntegrityChecker.cpp</in>
+      <in>virtdat.cpp</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>../Debug/makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>../Debug/makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-O2 -std=c++11 -fPIC"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>../Debug</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f makefile</buildCommand>
+          <cleanCommand>${MAKE} -f makefile clean</cleanCommand>
+          <executablePath>../Debug/libvirtdat</executablePath>
+          <ccTool>
+            <incDir>
+              <pElem>/usr/include/boost/python/detail</pElem>
+              <pElem>/usr/include/atk-1.0</pElem>
+              <pElem>/usr/include/gdk-pixbuf-2.0</pElem>
+              <pElem>/usr/include/cairo</pElem>
+              <pElem>/usr/include/pango-1.0</pElem>
+              <pElem>/usr/lib/x86_64-linux-gnu/glib-2.0/include</pElem>
+              <pElem>/usr/include/glib-2.0</pElem>
+              <pElem>/usr/include/gtk-3.0</pElem>
+              <pElem>../../../Свалени/openssl-1.0.2/include</pElem>
+              <pElem>/usr/include/python2.7</pElem>
+              <pElem>../../../Свалени/boost_1_57_0/boost/python/detail</pElem>
+              <pElem>/usr/include/at-spi2-atk/2.0</pElem>
+              <pElem>/usr/include/gio-unix-2.0</pElem>
+              <pElem>/usr/include/harfbuzz</pElem>
+              <pElem>/usr/include/freetype2</pElem>
+              <pElem>/usr/include/pixman-1</pElem>
+              <pElem>/usr/include/libpng12</pElem>
+              <pElem>../Debug</pElem>
+            </incDir>
+          </ccTool>
+        </makeTool>
+      </makefileType>
+      <item path="CommandAndControllModule/CommandAndControll.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+      </item>
+      <item path="CommandAndControllModule/VirtTableHolder.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+      </item>
+      <item path="GuiModule/main.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="InternetModule/ClientModule.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="InternetModule/MainServer.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="InternetModule/ServerModule.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="NamedPipeModule/NamePipeCommand.cpp"
+            ex="false"
+            tool="1"
+            flavor2="8">
+      </item>
+      <item path="PluginModule/CommandClass.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="VirtColum.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="VirtualTable.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="VirtualTableMetadata.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="VritualIntegrityChecker.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+      <item path="virtdat.cpp" ex="false" tool="1" flavor2="8">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

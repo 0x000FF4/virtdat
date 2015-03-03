@@ -14,6 +14,7 @@ class CommandAndControll {
 public:
 	void createTable(std::vector<std::VirtColum> columns ,std::string name = "",std::vector<std::string> tags = {});
 	void serializeAllTables();
+	int tableSize();
 	CommandAndControll();
 	virtual ~CommandAndControll();
 };

@@ -6,8 +6,11 @@
  */
 
 #include "CommandAndControll.h"
-#include "../VirtualTable.h"
+#include "../VirtualTable/VirtualTable.h"
 //#include "../SerializationManager/SerializationManager.h"
+int CommandAndControll::tableSize(){
+	return VirtTableHolder::getInstance().getTables()->size();
+}
 void CommandAndControll::createTable(std::vector<std::VirtColum> columns ,std::string name,std::vector<std::string> tags ){
 	std::VirtualTable *newTable = new std::VirtualTable(columns,name,tags);
 	VirtTableHolder::getInstance().addTable(newTable);

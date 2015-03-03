@@ -1,0 +1,6 @@
+all: main 
+main:
+	c++ main.cpp -std=c++11 -c
+
+clean:
+	$(RM) main.o 

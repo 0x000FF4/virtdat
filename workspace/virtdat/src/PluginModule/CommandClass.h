@@ -7,7 +7,7 @@
 
 #ifndef PLUGINMODULE_COMMANDCLASS_H_
 #define PLUGINMODULE_COMMANDCLASS_H_
-#include "../VirtColum.h"
+#include "../VirtualTable/VirtColum.h"
 #include <vector>
 
 class CommandClass {

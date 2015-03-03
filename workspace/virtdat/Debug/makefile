@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include src/VirtualTable/subdir.mk
 -include src/PluginModule/subdir.mk
 -include src/NamedPipeModule/subdir.mk
 -include src/InternetModule/subdir.mk
@@ -49,7 +50,7 @@ all: libvirtdat
 libvirtdat: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: Cross G++ Linker'
-	g++ `pkg-config --libs  --cflags gtk+-3.0` -shared -o "libvirtdat" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ `pkg-config --cflags --libs  gtk+-3.0` -shared -o "libvirtdat" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

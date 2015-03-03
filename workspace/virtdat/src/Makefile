@@ -1,0 +1,9 @@
+all: 
+	cd CommandAndControllModule; make
+	cd VirtualTable; make
+	cd GuiModule; make
+	g++ -L/home/x000ff4/workspace/virtdat/src/VirtualTable/ -L/home/x000ff4/workspace/virtdat/src/GuiModule/ -L/home/x000ff4/workspace/virtdat/src/CommandAndControllModule/ -o virtdata CommandAndControllModule/CommandAndControll.o CommandAndControllModule/VirtTableHolder.o GuiModule/main.o VirtualTable/VirtColum.o VirtualTable/VirtualTable.o VirtualTable/VirtualTableMetadata.o VirtualTable/VritualIntegrityChecker.o `pkg-config  --cflags --libs gtk+-3.0`
+clean:
+	cd CommandAndControllModule; make clean
+	cd VirtualTable; make clean
+	cd GuiModule; make clean

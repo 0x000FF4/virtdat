@@ -9,7 +9,7 @@
 #define COMMANDANDCONTROLLMODULE_VIRTTABLEHOLDER_H_
 
 #include <vector>
-#include "../VirtualTable.h"
+#include "../VirtualTable/VirtualTable.h"
 class VirtTableHolder {
 	std::vector<std::VirtualTable*> tables;
 	VirtTableHolder(VirtTableHolder const&) = delete;
