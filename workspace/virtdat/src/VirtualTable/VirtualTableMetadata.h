@@ -18,7 +18,7 @@ class VirtualTableMetadata : public std::VirtualTable {
 		ar & name & colums & tags;
 	};
 public:
-	VirtualTableMetadata(std::string name,std::vector<std::VirtColum> columns,std::vector<std::string> tags);
+	VirtualTableMetadata(std::string name,void(*updateFunc)(),std::vector<std::VirtColum> columns,std::vector<std::string> tags);
 	virtual ~VirtualTableMetadata();
 };
 

@@ -3,6 +3,12 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
+O_SRCS += \
+../src/VirtualTable/VirtColum.o \
+../src/VirtualTable/VirtualTable.o \
+../src/VirtualTable/VirtualTableMetadata.o \
+../src/VirtualTable/VritualIntegrityChecker.o 
+
 CPP_SRCS += \
 ../src/VirtualTable/VirtColum.cpp \
 ../src/VirtualTable/VirtualTable.cpp \

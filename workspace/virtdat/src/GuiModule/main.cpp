@@ -6,6 +6,18 @@
 CommandAndControll* comAndcontrol;
 GtkWidget *label;
 char buf[20];
+static const GtkTargetEntry queuelike_targets[] = {
+  {
+    (char *)"text/x-disorder-queued-tracks",
+    GTK_TARGET_SAME_WIDGET,
+    0
+  },
+  {
+    (char *)"text/x-disorder-playable-tracks",
+    GTK_TARGET_SAME_APP|GTK_TARGET_OTHER_WIDGET,
+    1
+  },
+};
 void createVirtualTable(GtkWidget *widget, gpointer label){
 	std::vector<std::VirtColum> columns;
 	std::VirtColum column1("column1" ,std::TYPE::TEXT,false, false);
@@ -36,6 +48,8 @@ int main(int argc, char *argv[]) {
 	  frame = gtk_fixed_new();
 	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	gtk_window_set_title(GTK_WINDOW(window), "Window");
+
+
 	button = gtk_button_new_with_label("create new virtual table");
 	gtk_widget_set_size_request(window, 2000, 1500);
 	gtk_widget_set_size_request(button, 1000, 50);
@@ -51,6 +65,16 @@ int main(int argc, char *argv[]) {
 	gtk_widget_set_margin_top(button, 850);
 	gtk_widget_set_margin_bottom(button, 100);
 	gtk_widget_queue_resize(button);
+	gtk_drag_source_set(window,
+	                    GDK_BUTTON1_MASK,
+	                    queuelike_targets,
+	                    sizeof queuelike_targets / sizeof *queuelike_targets,
+	                    GDK_ACTION_MOVE);
+	gtk_drag_dest_set(label,
+			GtkDestDefaults::GTK_DEST_DEFAULT_ALL,
+	                  queuelike_targets,
+	                  sizeof queuelike_targets / sizeof *queuelike_targets,
+	 GDK_ACTION_MOVE);
 	gtk_fixed_put(GTK_FIXED(frame), button, 50, 80);
 	gtk_fixed_put(GTK_FIXED(frame), label, 100, 80);
 	gtk_container_add(GTK_CONTAINER(window), frame);

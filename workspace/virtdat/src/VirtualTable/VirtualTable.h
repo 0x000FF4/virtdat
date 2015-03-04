@@ -22,7 +22,7 @@ protected:
 	 string name;
 	 vector<VirtColum> colums;//holding the meta data about the virtTable;
 	 vector<vector<char*> > row;//holding the rows;
-
+	 void(*updateFunc)();
 	vector<string> tags;
 
 public:
@@ -33,6 +33,7 @@ public:
 	vector<string> getTags();
 	vector<VirtColum> getColumns();
 	VirtualTableMetadata* getMetadata();
+
 	long long int getRowCount();
 	// Get row or rows by the given criterion.If no result was found will
 	// return empty vector.
@@ -57,7 +58,7 @@ public:
 	  * \point in this.
 	  */
 
-	VirtualTable(vector<VirtColum> columns ,string name = "",vector<string> tags = {});
+	VirtualTable(vector<VirtColum> columns ,  void(*updateFunc)(),string name = "",vector<string> tags = {});
 	virtual ~VirtualTable();
 };
 

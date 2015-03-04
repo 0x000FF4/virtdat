@@ -17,7 +17,7 @@ vector<VirtColum> VirtualTable::getColumns(){
 }
 VirtualTableMetadata* VirtualTable::getMetadata(){
 
-	VirtualTableMetadata* metadata = new VirtualTableMetadata(this->name,this->colums,this->tags);
+	VirtualTableMetadata* metadata = new VirtualTableMetadata(this->name,this->updateFunc,this->colums,this->tags);
 	return metadata;
 }
 short VirtualTable::getColumCount() {
@@ -75,6 +75,7 @@ void VirtualTable::addRow(vector<char*> newRow) {
 		}
 	}
 	this->row.push_back(newRow);
+	updateFunc();
 }
 void VirtualTable::addTag(string tag) {
 	this->tags.push_back(tag);
@@ -90,10 +91,11 @@ vector<string> VirtualTable::getTags() {
 //	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
 //	this->name = name;
 //}
-VirtualTable::VirtualTable(vector<VirtColum> columns,string name , vector<string> tags ){
+VirtualTable::VirtualTable(vector<VirtColum> columns, void(*updateFunc)(),string name , vector<string> tags ){
 	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
 	this->tags.insert(this->tags.end(), tags.begin(), tags.end());
 	this->name = name;
+	this->updateFunc = updateFunc;
 }
 VirtualTable::~VirtualTable() {
 }
