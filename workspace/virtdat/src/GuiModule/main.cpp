@@ -5,6 +5,9 @@
 #include "../CommandAndControllModule/CommandAndControll.h"
 CommandAndControll* comAndcontrol;
 GtkWidget *label;
+GtkWindow *windowLabel;
+GtkWidget *window;
+GtkWidget *window2;
 char buf[20];
 static const GtkTargetEntry queuelike_targets[] = {
   {
@@ -18,6 +21,14 @@ static const GtkTargetEntry queuelike_targets[] = {
     1
   },
 };
+void configure_callback(GtkWidget * widget, GtkWindow * window)
+{
+    gtk_widget_hide (GTK_WIDGET (window));
+    gtk_window_set_position (GTK_WINDOW (window),  GTK_WIN_POS_MOUSE);
+    gtk_widget_show_all (GTK_WIDGET (window));
+	  sprintf(buf, "virtual tables: %d", 2);
+	  gtk_label_set_text(GTK_LABEL(label), buf);
+}
 void createVirtualTable(GtkWidget *widget, gpointer label){
 	std::vector<std::VirtColum> columns;
 	std::VirtColum column1("column1" ,std::TYPE::TEXT,false, false);
@@ -36,10 +47,14 @@ void createVirtualTable(GtkWidget *widget, gpointer label){
 	int size = comAndcontrol->tableSize();
 	  sprintf(buf, "virtual tables: %d", size);
 	  gtk_label_set_text(GTK_LABEL(label), buf);
+	   // gtk_widget_hide (GTK_WIDGET (window));
+	    gtk_window_set_position (GTK_WINDOW (window2),  GTK_WIN_POS_MOUSE);
+	   // gtk_widget_show_all (GTK_WIDGET (window));
 }
 int main(int argc, char *argv[]) {
-	GtkWidget *window;
+
 	GtkWidget *frame;
+
 	comAndcontrol = new CommandAndControll();
 	GtkWidget *button;
 	gtk_init(&argc, NULL);
@@ -65,22 +80,27 @@ int main(int argc, char *argv[]) {
 	gtk_widget_set_margin_top(button, 850);
 	gtk_widget_set_margin_bottom(button, 100);
 	gtk_widget_queue_resize(button);
-	gtk_drag_source_set(window,
-	                    GDK_BUTTON1_MASK,
-	                    queuelike_targets,
-	                    sizeof queuelike_targets / sizeof *queuelike_targets,
-	                    GDK_ACTION_MOVE);
-	gtk_drag_dest_set(label,
-			GtkDestDefaults::GTK_DEST_DEFAULT_ALL,
-	                  queuelike_targets,
-	                  sizeof queuelike_targets / sizeof *queuelike_targets,
-	 GDK_ACTION_MOVE);
+
+//	gtk_drag_source_set(window,
+//	                    GDK_BUTTON1_MASK,
+//	                    queuelike_targets,
+//	                    sizeof queuelike_targets / sizeof *queuelike_targets,
+//	                    GDK_ACTION_MOVE);
+//	gtk_drag_dest_set(label,
+//			GtkDestDefaults::GTK_DEST_DEFAULT_ALL,
+//	                  queuelike_targets,
+//	                  sizeof queuelike_targets / sizeof *queuelike_targets,
+//	 GDK_ACTION_MOVE);
+
 	gtk_fixed_put(GTK_FIXED(frame), button, 50, 80);
 	gtk_fixed_put(GTK_FIXED(frame), label, 100, 80);
 	gtk_container_add(GTK_CONTAINER(window), frame);
+	gtk_container_add (GTK_CONTAINER (window2), label);
+	  g_signal_connect(label, "configure_callback",
+	      G_CALLBACK(configure_callback), window2);
 	  g_signal_connect(button, "clicked",
 	      G_CALLBACK(createVirtualTable), label);
-	g_signal_connect(window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
+	  g_signal_connect(window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
 
 	  gtk_widget_show_all(window);
 
