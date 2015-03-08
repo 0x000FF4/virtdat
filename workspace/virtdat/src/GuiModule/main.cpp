@@ -5,10 +5,10 @@
 #include "myarea.h"
 #include "LineParams.h"
 #include "../CommandAndControllModule/CommandAndControll.h"
-
+#include "NewVirtTable.h"
 #define WINDOW_WIDTH  1730
 #define WINDOW_HEIGHT 800
-CommandAndControll* comAndcontrol;
+
 std::vector<GtkImage*> tables;
 std::vector<bool> tablesMov;
 std::vector<LineParams> lines;
@@ -22,6 +22,8 @@ GtkButton *virtTableButton;
 GtkButton *virtConnectionButton;
 GtkWidget *frame;
 GtkWidget *darea;
+GtkBuilder  *builder;
+NewVirtTable newVirtTable(new CommandAndControll);
 bool isMouse1;
 bool labelMov;
 bool isLine;
@@ -201,17 +203,7 @@ void configure_callback(GtkWidget * widget, GtkWindow * window) {
 	gtk_label_set_text(GTK_LABEL(label), buf);
 }
 void createVirtualTable(GtkWidget *widget, gpointer label) {
-	std::vector<std::VirtColum> columns;
-	std::VirtColum column1("column1", std::TYPE::TEXT, false, false);
-	std::VirtColum column2("column2", std::TYPE::BOOLEAN, true, false);
-	std::VirtColum column3("column3", std::TYPE::BLOB, false, true);
-	std::VirtColum column4("column4", std::TYPE::INTEGER, true, true);
-	std::VirtColum column5("column5", std::TYPE::TEXT, false, true);
-	columns.push_back(column1);
-	columns.push_back(column2);
-	columns.push_back(column3);
-	columns.push_back(column4);
-	columns.push_back(column5);
+
 
 	comAndcontrol->createTable(columns);
 	GtkImage *img = GTK_IMAGE(gtk_image_new_from_file("virtTable.png"));
@@ -232,6 +224,10 @@ static gboolean draw_cb(GtkWidget *widget, cairo_t *cr, gpointer data) {
 
 	return FALSE;
 }
+void create_window(GtkWidget *button, gpointer window) {
+	newVirtTable.createNewTable();
+}
+
 int main(int argc, char *argv[]) {
 
 	comAndcontrol = new CommandAndControll();
@@ -242,8 +238,9 @@ int main(int argc, char *argv[]) {
 	labelMov = false;
 	isLineEnd = false;
 	frame = gtk_fixed_new();
+    builder = gtk_builder_new ();
 	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
-	gtk_window_set_title(GTK_WINDOW(window), "Window");
+	gtk_window_set_title(GTK_WINDOW(window), "Virtdat");
 
 	fixed = gtk_fixed_new();
 	darea = gtk_drawing_area_new();
@@ -304,8 +301,10 @@ int main(int argc, char *argv[]) {
 
 	g_signal_connect(label, "configure_callback",
 			G_CALLBACK(configure_callback), window2);
-	g_signal_connect(virtTableButton, "clicked", G_CALLBACK(createVirtualTable),
-			NULL);
+	g_signal_connect(virtTableButton, "clicked", G_CALLBACK(create_window), NULL);
+
+//g_signal_connect(virtTableButton, "clicked", G_CALLBACK(createVirtualTable),
+//			NULL);
 	g_signal_connect(virtConnectionButton, "clicked", G_CALLBACK(enabelLine),
 			NULL);
 	g_signal_connect(window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
