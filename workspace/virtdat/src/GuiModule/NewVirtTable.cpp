@@ -17,16 +17,14 @@ std::vector<GtkComboBoxText*> types;
 
 void createTableButton(GtkWidget *widget, gpointer data) {
 	std::vector<std::VirtColum> columns;
-	std::VirtColum column1("column1", std::TYPE::TEXT, false, false);
-	std::VirtColum column2("column2", std::TYPE::BOOLEAN, true, false);
-	std::VirtColum column3("column3", std::TYPE::BLOB, false, true);
-	std::VirtColum column4("column4", std::TYPE::INTEGER, true, true);
-	std::VirtColum column5("column5", std::TYPE::TEXT, false, true);
+	std::vector<GtkEntry*>::iterator e = entries.begin();
+	auto a = autoIncrs.begin();
+	auto i = isNulls.begin();
+	auto t = types.begin();
+	for(; e!=entries.end();e++ ,a++,i++,t++){
+	std::VirtColum column1(gtk_entry_get_text(*e), gtk_combo_box_get_active(GTK_COMBO_BOX(*t)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
 	columns.push_back(column1);
-	columns.push_back(column2);
-	columns.push_back(column3);
-	columns.push_back(column4);
-	columns.push_back(column5);
+	}
 }
 void callBack(GtkWidget *widget, gpointer data) {
 

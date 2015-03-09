@@ -10,11 +10,11 @@
 #include <string>
 namespace std {
 enum TYPE{
-	TEXT,
-	BOOLEAN,
-	INTEGER,
-	BLOB,
-	REAL
+	TEXT = 1,
+	BOOLEAN = 2,
+	INTEGER = 3,
+	BLOB = 4,
+	REAL = 5
 };
 class VirtColum {
 	TYPE type;
