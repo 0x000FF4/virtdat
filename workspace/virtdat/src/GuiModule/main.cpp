@@ -23,7 +23,7 @@ GtkButton *virtConnectionButton;
 GtkWidget *frame;
 GtkWidget *darea;
 GtkBuilder  *builder;
-NewVirtTable newVirtTable(new CommandAndControll);
+NewVirtTable newVirtTable;
 bool isMouse1;
 bool labelMov;
 bool isLine;
@@ -234,8 +234,22 @@ static gboolean draw_cb(GtkWidget *widget, cairo_t *cr, gpointer data) {
 
 	return FALSE;
 }
+void creatingDone(){
+	GtkImage *img = GTK_IMAGE(gtk_image_new_from_file("virtTable.png"));
+	gtk_widget_set_size_request(GTK_WIDGET(img), 50, 50);
+	//gtk_fixed_put( (GtkFixed*)fixed,GTK_WIDGET(img),0,0 );
+	tables.push_back(img);
+	gtk_fixed_put((GtkFixed*) fixed, GTK_WIDGET(img), 500, 120);
+	gtk_fixed_put(GTK_FIXED(frame), GTK_WIDGET(img), 500, 120);
+	tablesMov.push_back(false);
+	printf("---------------------------");
+	gtk_widget_show_all(window);
+
+	gtk_main();
+}
 void create_window(GtkWidget *button, gpointer window) {
-	newVirtTable.createNewTable();
+	std::vector<std::string> tags;
+	newVirtTable.createNewTable(comAndcontrol,&creatingDone);
 }
 
 int main(int argc, char *argv[]) {
@@ -311,10 +325,10 @@ int main(int argc, char *argv[]) {
 
 	g_signal_connect(label, "configure_callback",
 			G_CALLBACK(configure_callback), window2);
-//	g_signal_connect(virtTableButton, "clicked", G_CALLBACK(create_window), NULL);
+	g_signal_connect(virtTableButton, "clicked", G_CALLBACK(create_window), NULL);
 
-g_signal_connect(virtTableButton, "clicked", G_CALLBACK(createVirtualTable),
-			NULL);
+//g_signal_connect(virtTableButton, "clicked", G_CALLBACK(createVirtualTable),
+//		NULL);
 	g_signal_connect(virtConnectionButton, "clicked", G_CALLBACK(enabelLine),
 			NULL);
 	g_signal_connect(window, "destroy", G_CALLBACK (gtk_main_quit), NULL);

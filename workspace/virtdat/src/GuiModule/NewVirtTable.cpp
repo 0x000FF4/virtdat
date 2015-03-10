@@ -8,24 +8,50 @@
 #include "NewVirtTable.h"
 int numberOfColumns;
 GtkGrid *table;
-
+GtkEntry *tableName;
 std::vector<GtkEntry*> entries;
 std::vector<GtkWidget*> autoIncrs;
 std::vector<GtkWidget*> isNulls;
 std::vector<GtkComboBoxText*> types;
-
-
+NewVirtTable* NewVirtTable::ints = 0;
 void createTableButton(GtkWidget *widget, gpointer data) {
 	std::vector<std::VirtColum> columns;
 	std::vector<GtkEntry*>::iterator e = entries.begin();
 	auto a = autoIncrs.begin();
 	auto i = isNulls.begin();
 	auto t = types.begin();
+	std::VirtColum *column1;
 	for(; e!=entries.end();e++ ,a++,i++,t++){
-	std::VirtColum column1(gtk_entry_get_text(*e), gtk_combo_box_get_active(GTK_COMBO_BOX(*t)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
-	columns.push_back(column1);
+		switch(gtk_combo_box_get_active(GTK_COMBO_BOX(*t))){
+		case 1:
+			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::TEXT,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			columns.push_back(*column1);
+			break;
+		case 2:
+			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::BOOLEAN,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			columns.push_back(*column1);
+			break;
+		case 3:
+			column1 = new  std::VirtColum(gtk_entry_get_text(*e), std::TYPE::INTEGER,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			columns.push_back(*column1);
+			break;
+		case 4:
+			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::BLOB,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			columns.push_back(*column1);
+			break;
+		case 5:
+			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::REAL,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			columns.push_back(*column1);
+			break;
+		}
 	}
+	std::vector<std::string> tags;
+	NewVirtTable::ints->comAndcontrol->createTable(columns,gtk_entry_get_text(tableName),tags);
+	gtk_window_close(GTK_WINDOW(NewVirtTable::ints->new_window));
+	NewVirtTable::ints->tableDone();
+
 }
+
 void callBack(GtkWidget *widget, gpointer data) {
 
 	numberOfColumns++;
@@ -48,10 +74,12 @@ void callBack(GtkWidget *widget, gpointer data) {
 	gtk_widget_show(autoIncrs.back());
 	gtk_widget_show(isNulls.back());
 }
-void NewVirtTable::createNewTable() {
-	GtkWidget *new_window;
+void NewVirtTable::createNewTable(CommandAndControll* comAndcontrol,void(*tableDone)()) {
+
 	GtkButton *newColumn;
 	GtkButton *createTable;
+	this->comAndcontrol = comAndcontrol;
+	this->tableDone = tableDone;
 
 	GtkWidget *name;
 	GtkWidget *typeName;
@@ -69,6 +97,7 @@ void NewVirtTable::createNewTable() {
 	notNull = gtk_label_new("Задължително  ");
 	isAutoIncr = gtk_check_button_new();
 	isNull = gtk_check_button_new();
+	tableName = GTK_ENTRY(gtk_entry_new());
 	type  = GTK_COMBO_BOX_TEXT(gtk_combo_box_text_new());
 	entry = GTK_ENTRY(gtk_entry_new());
 	table = GTK_GRID(gtk_grid_new());
@@ -83,7 +112,7 @@ void NewVirtTable::createNewTable() {
 	gtk_widget_set_size_request(GTK_WIDGET(newColumn), 50, 50);
 	gtk_widget_set_size_request(GTK_WIDGET(entry), 10, 10);
 	gtk_widget_set_size_request(GTK_WIDGET(createTable), 150, 30);
-
+	gtk_widget_set_size_request(GTK_WIDGET(tableName),150,30);
 	new_window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	frame = gtk_fixed_new();
 	gtk_container_add((GtkContainer*) new_window, (GtkWidget*) frame);
@@ -100,6 +129,7 @@ void NewVirtTable::createNewTable() {
 	gtk_grid_attach(table, GTK_WIDGET(type), 1, 1, 1, 1);
 	gtk_grid_attach(table, isAutoIncr, 2, 1, 1, 1);
 	gtk_grid_attach(table, isNull, 3, 1, 1, 1);
+	gtk_fixed_put(GTK_FIXED(frame),GTK_WIDGET(tableName),80,10);
 	gtk_fixed_put(GTK_FIXED(frame), GTK_WIDGET(table), 100, 50);
 	gtk_fixed_put(GTK_FIXED(frame), GTK_WIDGET(newColumn), 10, 10);
 	gtk_fixed_put(GTK_FIXED(frame), GTK_WIDGET(createTable), 230, 450);
@@ -109,12 +139,13 @@ void NewVirtTable::createNewTable() {
 					| GDK_BUTTON_RELEASE_MASK | GDK_POINTER_MOTION_MASK
 					| GDK_POINTER_MOTION_HINT_MASK);
 	g_signal_connect(newColumn, "clicked", G_CALLBACK(callBack), NULL);
+	g_signal_connect(createTable, "clicked", G_CALLBACK(createTableButton), NULL);
 	gtk_widget_show_all(new_window);
+
 	gtk_main();
 }
-NewVirtTable::NewVirtTable(CommandAndControll* comAndcontrol) {
-	this->comAndcontrol = comAndcontrol;
-
+NewVirtTable::NewVirtTable() {
+	NewVirtTable::ints = this;
 }
 
 NewVirtTable::~NewVirtTable() {
