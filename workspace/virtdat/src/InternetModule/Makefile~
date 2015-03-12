@@ -1,0 +1,11 @@
+all: MainServer ServerModule ClientModule Commands
+MainServer:
+	c++ MainServer.cpp -std=c++11 -c
+ServerModule:
+	c++ ServerModule.cpp -std=c++11 -c
+ClientModule:
+	c++ ClientModule.cpp -std=c++11 -c
+Commands:
+	c++ Commands.cpp -std=c++11 -c
+clean: 
+	$(RM) MainServer.o ServerModule.o ClientModule.o Commands.o

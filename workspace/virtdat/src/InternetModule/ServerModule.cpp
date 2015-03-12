@@ -8,20 +8,28 @@
 #include "ServerModule.h"
 
 ServerModule::ServerModule() {
+	SSL_library_init();// nobodys is perfect
 	SSL_load_error_strings();
 	ERR_load_BIO_strings();
+
 	OpenSSL_add_all_algorithms();
 	this->ssl = NULL;
+
+
 	this->methodServer = SSLv23_method();
+
 	this->serverContext = SSL_CTX_new(this->methodServer);
+
 	this->errorVerifyCert = SSL_CTX_load_verify_locations(this->serverContext,
-			"/tmp/virtdata", "cert");
+			"virtdat.csr", "/home/x000ff4/workspace/virtdat/src/");
 	if (this->errorVerifyCert == 0) {
 		ERR_print_errors_fp(stderr);
+		std::flush(std::cout);
+		std::flush(std::cerr);
 		//std::cout << 'Error:' << stderr;
-		abort();
+		//abort();
 	}
-	this->bioServer = BIO_new_ssl_connect(this->serverContext);
+	/*this->bioServer = BIO_new_ssl_connect(this->serverContext);
 	BIO_get_ssl(this->bioServer, this->ssl);
 	if ((this->ssl) == 0) {
 		ERR_print_errors_fp(stderr);
@@ -29,7 +37,7 @@ ServerModule::ServerModule() {
 		abort();
 	}
 	SSL_set_mode(this->ssl, SSL_MODE_AUTO_RETRY);
-	BIO_set_conn_hostname(this->bioServer, "127.0.0.1:8888");
+	BIO_set_conn_hostname(this->bioServer, "127.0.0.1:8838");
 
 	if (BIO_do_connect(this->bioServer) < 1) {
 
@@ -39,7 +47,7 @@ ServerModule::ServerModule() {
 	if (SSL_get_verify_result(this->ssl) != X509_V_OK) {
 		//std::cerr << "cannot verify connection";
 	}
-
+*/
 }
 
 ServerModule::~ServerModule() {

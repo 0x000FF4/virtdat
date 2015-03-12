@@ -20,8 +20,9 @@ static	 ClientModule clientModule;
 //	std::thread* threadsServerWrite;
 	std::thread* threadsClientRead;
 	std::thread* threadsClientWrite;
+	std::thread* threadsServerRead;
+	std::thread* threadsServerWrite;
 public:
-	void lol();
 	MainServer();
 	virtual ~MainServer();
 };

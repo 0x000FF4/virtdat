@@ -10,7 +10,7 @@ void ClientModule::readData() {
 	while (true) {
 		ssize_t isReaded = -1;
 		while (isReaded < 0) {
-			isReaded = BIO_read(this->bioClient, buffer, BUFFER_LENGHT);
+			isReaded = BIO_read(this->bioClient, readBuffer, BUFFER_LENGHT);
 			if (isReaded == 0) {
 				continue;
 			} else {
@@ -24,11 +24,17 @@ void ClientModule::readData() {
 	}
 
 }
+std::ofstream&  ClientModule::getOutputStream(){
+	return this->writeBuffer;
+}
+std::ifstream&  ClientModule::getInputStream(){
+	return this->readBuffer;
+}
 void ClientModule::writeData() {
 	while (true) {
 		ssize_t isReaded = -1;
 		while (isReaded < 0) {
-			isReaded = BIO_write(this->bioClient, buffer, BUFFER_LENGHT);
+			isReaded = BIO_write(this->bioClient, writeBuffer, BUFFER_LENGHT);
 
 			if (!BIO_should_retry(this->bioClient)) {
 				//std::cerr << "error while reading internet client module";

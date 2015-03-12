@@ -21,6 +21,7 @@ void SerializationManager::Serialize(std::vector<std::VirtualTable*> *tables) {
 			metadata.begin(); itMeta != metadata.end();++itMeta) {
 		VirtualTableMetadata* metaPointer = *itMeta;
 		(*this->archive)<< (metaPointer);
+
 	}
 }
 std::string SerializationManager::getTableTomb() {

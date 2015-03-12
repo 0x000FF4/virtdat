@@ -13,7 +13,7 @@
 #include "openssl/ssl.h"
 #include "openssl/err.h"
 #include <openssl/evp.h>
-
+#include <iostream>
 class ServerModule {
 	BIO * bioServer;
 	const SSL_METHOD *methodServer;

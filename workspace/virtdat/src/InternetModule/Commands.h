@@ -8,6 +8,9 @@
 #ifndef INTERNETMODULE_COMMANDS_H_
 #define INTERNETMODULE_COMMANDS_H_
 
+#include <vector>
+#include <string>
+
 enum INTERNET_COMMANDS{
 	CREATE_TABLE,
 	DELETE_TABLE,
@@ -16,9 +19,13 @@ enum INTERNET_COMMANDS{
 };
 
 class Commands {
-
+	INTERNET_COMMANDS command;
+	 std::vector<std::string> args;
 public:
-	Commands();
+	void setCommand(INTERNET_COMMANDS command);
+	void addArg(std::string arg);
+	std::vector<std::string> getArgs();
+	Commands(INTERNET_COMMANDS command);
 	virtual ~Commands();
 };
 

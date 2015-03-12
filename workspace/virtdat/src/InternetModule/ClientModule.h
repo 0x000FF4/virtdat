@@ -12,16 +12,19 @@
 #include "openssl/ssl.h"
 #include "openssl/err.h"
 #include <openssl/evp.h>
-
+#include <iostream>
+#include <fstream>
 class ClientModule {
 	BIO * bioClient;
 	const SSL_METHOD *methodClient;
 	SSL_CTX *clientContext;
 	SSL* ssl;
 	int errorVerifyCert;
-	char  buffer[BUFFER_LENGHT];
-
+	std::ifstream readBuffer;
+	std::ofstream writeBuffer;
 public:
+	std::ifstream& getInputStream();
+	std::ofstream& getOutputStream();
 	ClientModule();
    ~ClientModule();
 	void readData();
