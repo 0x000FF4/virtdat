@@ -11,7 +11,7 @@
 #include "../InternetModule/ServerModule.h"
 #include <vector>
 class CommandAndControll {
-		ServerModule server;
+		//ServerModule server;
 public:
 	void createTable(std::vector<std::VirtColum> columns ,std::string name = "",std::vector<std::string> tags = {});
 	void serializeAllTables();

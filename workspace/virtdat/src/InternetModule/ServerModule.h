@@ -13,7 +13,38 @@
 #include "openssl/ssl.h"
 #include "openssl/err.h"
 #include <openssl/evp.h>
+#include <sys/socket.h>
 #include <iostream>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <malloc.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <resolv.h>
+typedef int (*spc_x509verifycallback_t)(int, X509_STORE_CTX *);
+
+typedef struct {
+  char                      *cafile;
+  char                      *capath;
+  char                      *crlfile;
+  spc_x509verifycallback_t  callback;
+  STACK_OF(X509)            *certs;
+  STACK_OF(X509_CRL)        *crls;
+  char                      *use_certfile;
+  STACK_OF(X509)            *use_certs;
+  char                      *use_keyfile;
+  EVP_PKEY                  *use_key;
+  int                       flags;
+} spc_x509store_t;
+
+
 class ServerModule {
 	BIO * bioServer;
 	const SSL_METHOD *methodServer;
@@ -26,7 +57,7 @@ class ServerModule {
 public:
 	ServerModule();
 	 ~ServerModule();
-	void readData();
+	void start();
 	void writeData();
 };
 
