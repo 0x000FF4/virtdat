@@ -12,6 +12,7 @@
 #include "openssl/bio.h"
 #include "openssl/ssl.h"
 #include "openssl/err.h"
+#include <netdb.h>
 #include <openssl/evp.h>
 #include <sys/socket.h>
 #include <iostream>

@@ -12,6 +12,22 @@
 #include "openssl/ssl.h"
 #include "openssl/err.h"
 #include <openssl/evp.h>
+#include <netdb.h>
+#include <sys/socket.h>
+#include <iostream>
+#include <arpa/inet.h>
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <malloc.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <resolv.h>
 #include <iostream>
 #include <fstream>
 class ClientModule {
@@ -23,6 +39,7 @@ class ClientModule {
 	std::ifstream readBuffer;
 	std::ofstream writeBuffer;
 public:
+	void start();
 	std::ifstream& getInputStream();
 	std::ofstream& getOutputStream();
 	ClientModule();

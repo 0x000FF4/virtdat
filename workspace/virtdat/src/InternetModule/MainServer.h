@@ -8,7 +8,7 @@
 #ifndef INTERNETMODULE_MAINSERVER_H_
 #define INTERNETMODULE_MAINSERVER_H_
 #define NUM_THREADS 1
-//#include "ServerModule.h"
+#include "ServerModule.h"
 #include "ClientModule.h"
 
 #include <thread>
