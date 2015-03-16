@@ -4,16 +4,30 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 O_SRCS += \
+../src/GuiModule/LineParams.o \
+../src/GuiModule/NewVirtTable.o \
 ../src/GuiModule/main.o 
 
 CPP_SRCS += \
-../src/GuiModule/main.cpp 
+../src/GuiModule/LineParams.cpp \
+../src/GuiModule/MVObject.cpp \
+../src/GuiModule/NewVirtTable.cpp \
+../src/GuiModule/main.cpp \
+../src/GuiModule/myarea.cpp 
 
 OBJS += \
-./src/GuiModule/main.o 
+./src/GuiModule/LineParams.o \
+./src/GuiModule/MVObject.o \
+./src/GuiModule/NewVirtTable.o \
+./src/GuiModule/main.o \
+./src/GuiModule/myarea.o 
 
 CPP_DEPS += \
-./src/GuiModule/main.d 
+./src/GuiModule/LineParams.d \
+./src/GuiModule/MVObject.d \
+./src/GuiModule/NewVirtTable.d \
+./src/GuiModule/main.d \
+./src/GuiModule/myarea.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

@@ -20,9 +20,10 @@ namespace std {
 class VirtualTable {
 protected:
 	 string name;
+	 vector<void*> callbackArgs;
 	 vector<VirtColum> colums;//holding the meta data about the virtTable;
 	 vector<vector<char*> > row;//holding the rows;
-	 void(*updateFunc)();
+	 void(*updateFunc)(std::vector<void*> args);
 	vector<string> tags;
 
 public:
@@ -31,9 +32,13 @@ public:
 	int getInt();
 	void addTag(string tag);
 	vector<string> getTags();
+	char* getCell(int row,int column);
+	vector<char*> getRow(int position);
+	void addCell(int column,char* val);
 	vector<VirtColum> getColumns();
+	void updateCell(int row,int column,char *newVal);
 	VirtualTableMetadata* getMetadata();
-
+	void setUpdateFunc( void(*updateFunc)(std::vector<void*> args));
 	long long int getRowCount();
 	// Get row or rows by the given criterion.If no result was found will
 	// return empty vector.
@@ -58,7 +63,7 @@ public:
 	  * \point in this.
 	  */
 
-	VirtualTable(vector<VirtColum> columns ,  void(*updateFunc)(),string name = "",vector<string> tags = {});
+	VirtualTable(vector<VirtColum> columns ,  void(*updateFunc)(vector<void*> callbackArgs),string name = "",vector<string> tags = {});
 	virtual ~VirtualTable();
 };
 

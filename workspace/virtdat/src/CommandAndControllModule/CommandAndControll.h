@@ -13,6 +13,7 @@
 class CommandAndControll {
 		//ServerModule server;
 public:
+	void linkTwoColumns(std::VirtColum *firts,std::VirtColum *second);
 	void createTable(std::vector<std::VirtColum> columns ,std::string name = "",std::vector<std::string> tags = {});
 	void serializeAllTables();
 	int tableSize();

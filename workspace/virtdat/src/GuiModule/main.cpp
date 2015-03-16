@@ -204,11 +204,11 @@ void configure_callback(GtkWidget * widget, GtkWindow * window) {
 }
 void createVirtualTable(GtkWidget *widget, gpointer label) {
 	std::vector<std::VirtColum> columns;
-	std::VirtColum column1("column1", std::TYPE::TEXT, false, false);
-	std::VirtColum column2("column2", std::TYPE::BOOLEAN, true, false);
-	std::VirtColum column3("column3", std::TYPE::BLOB, false, true);
-	std::VirtColum column4("column4", std::TYPE::INTEGER, true, true);
-	std::VirtColum column5("column5", std::TYPE::TEXT, false, true);
+	std::VirtColum column1("column1", std::TYPE::TEXT,NULL, false, false);
+	std::VirtColum column2("column2", std::TYPE::BOOLEAN,NULL, true, false);
+	std::VirtColum column3("column3", std::TYPE::BLOB,NULL, false, true);
+	std::VirtColum column4("column4", std::TYPE::INTEGER,NULL, true, true);
+	std::VirtColum column5("column5", std::TYPE::TEXT,NULL, false, true);
 	columns.push_back(column1);
 	columns.push_back(column2);
 	columns.push_back(column3);

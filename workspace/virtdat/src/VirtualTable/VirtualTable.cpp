@@ -9,28 +9,43 @@
 #include "VirtualTableMetadata.h"
 namespace std {
 
+void VirtualTable::setUpdateFunc(
+		void (*updateFunc)(vector<void*> callbackArgs)) {
+	this->updateFunc = updateFunc;
+}
 long long int VirtualTable::getRowCount() {
 	return this->row.size();
 }
-vector<VirtColum> VirtualTable::getColumns(){
+vector<VirtColum> VirtualTable::getColumns() {
 	return this->colums;
 }
-VirtualTableMetadata* VirtualTable::getMetadata(){
+VirtualTableMetadata* VirtualTable::getMetadata() {
 
-	VirtualTableMetadata* metadata = new VirtualTableMetadata(this->name,this->updateFunc,this->colums,this->tags);
+	VirtualTableMetadata* metadata = new VirtualTableMetadata(this->name,
+			this->updateFunc, this->colums, this->tags);
 	return metadata;
+}
+void VirtualTable::updateCell(int row, int column, char *newVal) {
+	this->row.at(column).at(row) = newVal;
 }
 short VirtualTable::getColumCount() {
 	return this->colums.size();
 }
+void VirtualTable::addCell(int column, char* val) {
+	this->row.at(column).push_back(val);
+}
 void VirtualTable::setName(string name) {
 	this->name = name;
 }
-int VirtualTable::getInt(){
-	return 33;
+char* VirtualTable::getCell(int row, int column) {
+	return this->row.at(column).at(row);
 }
+
 string VirtualTable::getName() {
 	return this->name;
+}
+vector<char*> VirtualTable::getRow(int position) {
+	return this->row.at(position);
 }
 vector<vector<char*> > VirtualTable::getRow(map<string, string> criterion) {
 	vector<vector<char*> > result;
@@ -75,7 +90,7 @@ void VirtualTable::addRow(vector<char*> newRow) {
 		}
 	}
 	this->row.push_back(newRow);
-	updateFunc();
+	updateFunc(callbackArgs);
 }
 void VirtualTable::addTag(string tag) {
 	this->tags.push_back(tag);
@@ -84,14 +99,9 @@ vector<string> VirtualTable::getTags() {
 	return this->tags;
 }
 
-//VirtualTable::VirtualTable(vector<VirtColum> columns) {
-//	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
-//}
-//VirtualTable::VirtualTable(string name, vector<VirtColum> columns) {
-//	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
-//	this->name = name;
-//}
-VirtualTable::VirtualTable(vector<VirtColum> columns, void(*updateFunc)(),string name , vector<string> tags ){
+VirtualTable::VirtualTable(vector<VirtColum> columns,
+		void (*updateFunc)(vector<void*> callbackArgs), string name,
+		vector<string> tags) {
 	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
 	this->tags.insert(this->tags.end(), tags.begin(), tags.end());
 	this->name = name;

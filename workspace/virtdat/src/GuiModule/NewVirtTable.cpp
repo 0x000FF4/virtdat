@@ -24,23 +24,23 @@ void createTableButton(GtkWidget *widget, gpointer data) {
 	for(; e!=entries.end();e++ ,a++,i++,t++){
 		switch(gtk_combo_box_get_active(GTK_COMBO_BOX(*t))){
 		case 1:
-			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::TEXT,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::TEXT,NULL,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
 			columns.push_back(*column1);
 			break;
 		case 2:
-			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::BOOLEAN,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::BOOLEAN,NULL,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
 			columns.push_back(*column1);
 			break;
 		case 3:
-			column1 = new  std::VirtColum(gtk_entry_get_text(*e), std::TYPE::INTEGER,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			column1 = new  std::VirtColum(gtk_entry_get_text(*e), std::TYPE::INTEGER,NULL,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
 			columns.push_back(*column1);
 			break;
 		case 4:
-			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::BLOB,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::BLOB,NULL,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
 			columns.push_back(*column1);
 			break;
 		case 5:
-			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::REAL,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
+			column1 = new std::VirtColum(gtk_entry_get_text(*e), std::TYPE::REAL,NULL,gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*i)), gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(*a)));
 			columns.push_back(*column1);
 			break;
 		}

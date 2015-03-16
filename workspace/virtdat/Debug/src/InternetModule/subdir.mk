@@ -3,18 +3,27 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
+O_SRCS += \
+../src/InternetModule/ClientModule.o \
+../src/InternetModule/Commands.o \
+../src/InternetModule/MainServer.o \
+../src/InternetModule/ServerModule.o 
+
 CPP_SRCS += \
 ../src/InternetModule/ClientModule.cpp \
+../src/InternetModule/Commands.cpp \
 ../src/InternetModule/MainServer.cpp \
 ../src/InternetModule/ServerModule.cpp 
 
 OBJS += \
 ./src/InternetModule/ClientModule.o \
+./src/InternetModule/Commands.o \
 ./src/InternetModule/MainServer.o \
 ./src/InternetModule/ServerModule.o 
 
 CPP_DEPS += \
 ./src/InternetModule/ClientModule.d \
+./src/InternetModule/Commands.d \
 ./src/InternetModule/MainServer.d \
 ./src/InternetModule/ServerModule.d 
 

@@ -9,6 +9,7 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/VirtualTable/subdir.mk
+-include src/SerializationManager/subdir.mk
 -include src/PluginModule/subdir.mk
 -include src/NamedPipeModule/subdir.mk
 -include src/InternetModule/subdir.mk
