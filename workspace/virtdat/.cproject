@@ -47,6 +47,7 @@
 								<option id="gnu.cpp.compiler.option.other.other.1403703559" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -std=c++11   `pkg-config  --cflags --libs gtk+-3.0` -fPIC" valueType="string"/>
 								<option id="gnu.cpp.compiler.option.include.paths.567710658" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/usr/include/cairo"/>
+									<listOptionValue builtIn="false" value="/home/x000ff4/Свалени/rapidjson-master/include/"/>
 									<listOptionValue builtIn="false" value="/usr/include/giomm-2.4/"/>
 									<listOptionValue builtIn="false" value="/usr/include/gdkmm-3.0/"/>
 									<listOptionValue builtIn="false" value="/usr/include/atkmm-1.6/"/>
