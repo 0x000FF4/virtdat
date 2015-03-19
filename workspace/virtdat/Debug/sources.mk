@@ -29,5 +29,6 @@ src/PluginModule \
 src/NamedPipeModule \
 src/InternetModule \
 src/GuiModule \
+src/Convertor \
 src/CommandAndControllModule \
 

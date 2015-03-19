@@ -14,6 +14,7 @@ RM := rm -rf
 -include src/NamedPipeModule/subdir.mk
 -include src/InternetModule/subdir.mk
 -include src/GuiModule/subdir.mk
+-include src/Convertor/subdir.mk
 -include src/CommandAndControllModule/subdir.mk
 -include subdir.mk
 -include objects.mk

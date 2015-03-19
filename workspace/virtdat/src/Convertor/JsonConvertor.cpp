@@ -15,7 +15,19 @@ namespace std {
 
 string JsonConvertor::generateJson(vector<VirtColum*> cloumns,vector<vector<string>> rows){
 	rapidjson::Document d;
-	rapidjson::Value v;
+	vector<rapidjson::Value> columns;
+	for(int i = 0 ; i < columns.size();i++){
+		rapidjson::Value v ;
+			v.SetArray();
+			columns.push_back(v);
+	}
+	for(int i = 0 ; i< rows.size();i++){
+		for(int j = 0 ; i < rows.at(i).size();j++){
+			rapidjson::Value v ;
+			v.SetObject();
+			v.AddMember("playername","2", allocator);
+		}
+	}
 	v.SetObject();
 	rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
 	v.AddMember("playername","2", allocator);
