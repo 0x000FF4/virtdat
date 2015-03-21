@@ -6,6 +6,7 @@
  */
 
 #include "CommandAndControll.h"
+#include "../Convertor/JsonConvertor.h"
 #include "../VirtualTable/VirtualTable.h"
 //#include "../SerializationManager/SerializationManager.h"
 void updateLinkFunc(std::vector<void*> args) {

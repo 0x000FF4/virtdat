@@ -7,16 +7,16 @@
 
 #ifndef CONVERTOR_JSONCONVERTOR_H_
 #define CONVERTOR_JSONCONVERTOR_H_
-#include "rapidjson/document.h"
-#include "rapidjson/writer.h"
-#include "rapidjson/stringbuffer.h"
+#include <rapidjson/document.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
 #include "../VirtualTable/VirtColum.h"
 #include <vector>
 namespace std {
 
 class JsonConvertor {
 public:
-	string generateJson(vector<VirtColum*> cloumns,vector<vector<string>> rows);
+	string generateJson(vector<VirtColum*> columns,vector<vector<string>> rows);
 	JsonConvertor();
 	virtual ~JsonConvertor();
 };

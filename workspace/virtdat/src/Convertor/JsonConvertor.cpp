@@ -8,42 +8,40 @@
 #include "JsonConvertor.h"
 
 #include <string>
-
+#include <iostream>
 #include "../VirtualTable/VirtColum.h"
 
 namespace std {
 
-string JsonConvertor::generateJson(vector<VirtColum*> cloumns,vector<vector<string>> rows){
+string JsonConvertor::generateJson(vector<VirtColum*> columns,vector<vector<string>> rows){
 	rapidjson::Document d;
-	vector<rapidjson::Value> columns;
+	rapidjson::Document::AllocatorType& a = d.GetAllocator();
+	vector<rapidjson::Value*> columnsJson;// make a copy
 
-	for(int i = 0 ; i < columns.size();i++){
-		    rapidjson::Value v ;
-			v.SetInt();//utre 6te go naprawq po dobre
-
-			columns.push_back(v);
+	for(int i = 0 ; i< columns.size();i++){
+		rapidjson::Value clomun;
+		clomun.SetArray();
+		columnsJson.push_back(&clomun);
+			for(int j = 0 ; j<rows.at(i).size();j++){
+				//string s = rows.at(i).at(j);
+				rapidjson::Value cell(columns.at(i)->getName().c_str(),1);
+				clomun.PushBack(cell, a);
+			}
 	}
-	for(int i = 0 ; i< rows.size();i++){
-		for(int j = 0 ; i < rows.at(i).size();j++){
-			rapidjson::Value v ;
-			v.SetObject();
-			rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
-			v.AddMember("","2", allocator);
-			columns.at(0).PushBack(v);
-		}
+
+	d.SetObject();
+	for(int i = 0;  i < columns.size();i++){
+		rapidjson::Value name(columns.at(i)->getName().c_str(),1);
+		d.AddMember(name,*columnsJson.at(i),a);
 	}
-	v.SetObject();
 
-	v.AddMember("playername","2", allocator);
-	//d.AddMember("",rapidjson::Value(rows.at(0).at(0)));
-
-
-    // 3. Stringify the DOM
     rapidjson::StringBuffer buffer;
-    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
-    d.Accept(writer);
 
-    // Output {"project":"rapidjson","stars":11}
+
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+
+    d.Accept(writer);
+    cout<<"JSON:" <<buffer.GetString()<<endl;
     return buffer.GetString();
 }
 
