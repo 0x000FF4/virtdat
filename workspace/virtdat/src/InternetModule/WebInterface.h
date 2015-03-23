@@ -12,6 +12,7 @@ namespace virtdat {
 
 class WebInterface {
 public:
+ // will do more tomorrow;
 	WebInterface();
 	virtual ~WebInterface();
 };
