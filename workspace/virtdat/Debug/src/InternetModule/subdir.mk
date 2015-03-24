@@ -13,19 +13,22 @@ CPP_SRCS += \
 ../src/InternetModule/ClientModule.cpp \
 ../src/InternetModule/Commands.cpp \
 ../src/InternetModule/MainServer.cpp \
-../src/InternetModule/ServerModule.cpp 
+../src/InternetModule/ServerModule.cpp \
+../src/InternetModule/WebInterface.cpp 
 
 OBJS += \
 ./src/InternetModule/ClientModule.o \
 ./src/InternetModule/Commands.o \
 ./src/InternetModule/MainServer.o \
-./src/InternetModule/ServerModule.o 
+./src/InternetModule/ServerModule.o \
+./src/InternetModule/WebInterface.o 
 
 CPP_DEPS += \
 ./src/InternetModule/ClientModule.d \
 ./src/InternetModule/Commands.d \
 ./src/InternetModule/MainServer.d \
-./src/InternetModule/ServerModule.d 
+./src/InternetModule/ServerModule.d \
+./src/InternetModule/WebInterface.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
