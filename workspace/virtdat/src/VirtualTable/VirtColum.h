@@ -10,7 +10,7 @@
 #include <string>
 //#include "../VirtualTable/VirtualTable.h"
 struct VirtualTable;
-namespace std {
+namespace virtdat {
 enum TYPE{
 	TEXT = 1,
 	BOOLEAN = 2,
@@ -20,7 +20,7 @@ enum TYPE{
 };
 class VirtColum {
 	TYPE type;
-	string name;
+	std::string name;
 	bool null;
 	VirtualTable *table;
 	bool autoIncrement;
@@ -31,7 +31,7 @@ public:
 	};
 	void setTable(void* table);
 	VirtualTable* getTable();
-	string getName();
+	std::string getName();
 	bool isNull();
 	bool isAutoIncrement();
 	TYPE getType();
@@ -49,7 +49,7 @@ public:
 	  *\param autoIncrement - set the autoIncrement option for this column.
 	  *\It can`t be changed after the construction of the object because to keep integrity.
 	  */
-	VirtColum(string name ,TYPE type,VirtualTable* table,bool null, bool autoIncremen);
+	VirtColum(std::string name ,TYPE type,VirtualTable* table,bool null, bool autoIncremen);
 	virtual ~VirtColum();
 };
 

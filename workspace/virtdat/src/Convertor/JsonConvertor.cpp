@@ -11,7 +11,6 @@
 #include <iostream>
 #include "../VirtualTable/VirtColum.h"
 
-namespace std {
 
 string JsonConvertor::generateJson(vector<VirtColum*> columns,vector<vector<string>> rows){
 	rapidjson::Document d;
@@ -54,4 +53,3 @@ JsonConvertor::~JsonConvertor() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace std */

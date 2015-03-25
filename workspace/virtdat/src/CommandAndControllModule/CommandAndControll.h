@@ -10,6 +10,7 @@
 #include "VirtTableHolder.h"
 #include "../InternetModule/ServerModule.h"
 #include <vector>
+namespace virtdat{
 class CommandAndControll {
 		//ServerModule server;
 public:
@@ -20,5 +21,5 @@ public:
 	CommandAndControll();
 	virtual ~CommandAndControll();
 };
-
+}
 #endif /* COMMANDANDCONTROLLMODULE_COMMANDANDCONTROLL_H_ */

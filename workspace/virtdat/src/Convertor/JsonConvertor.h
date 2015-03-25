@@ -12,7 +12,7 @@
 #include <rapidjson/stringbuffer.h>
 #include "../VirtualTable/VirtColum.h"
 #include <vector>
-namespace std {
+namespace virtdat {
 
 class JsonConvertor {
 public:

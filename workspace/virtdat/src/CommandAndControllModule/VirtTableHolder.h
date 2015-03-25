@@ -10,6 +10,7 @@
 
 #include <vector>
 #include "../VirtualTable/VirtualTable.h"
+namespace virtdat{
 class VirtTableHolder {
 	std::vector<std::VirtualTable*> tables;
 	VirtTableHolder(VirtTableHolder const&) = delete;
@@ -22,5 +23,6 @@ public:
 	static VirtTableHolder& getInstance();
 
 };
+]
 
 #endif /* COMMANDANDCONTROLLMODULE_VIRTTABLEHOLDER_H_ */

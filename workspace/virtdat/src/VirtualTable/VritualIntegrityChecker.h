@@ -8,7 +8,7 @@
 #ifndef VRITUALINTEGRITYCHECKER_H_
 #define VRITUALINTEGRITYCHECKER_H_
 
-namespace std {
+namespace virtdat {
 
 class VritualIntegrityChecker {
 public:
@@ -16,6 +16,6 @@ public:
 	virtual ~VritualIntegrityChecker();
 };
 
-} /* namespace std */
+}
 
 #endif /* VRITUALINTEGRITYCHECKER_H_ */
