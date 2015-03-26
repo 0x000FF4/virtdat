@@ -8,8 +8,7 @@
 #ifndef VIRTCOLUM_H_
 #define VIRTCOLUM_H_
 #include <string>
-//#include "../VirtualTable/VirtualTable.h"
-struct VirtualTable;
+struct VirtualTableM;
 namespace virtdat {
 enum TYPE{
 	TEXT = 1,
@@ -22,7 +21,7 @@ class VirtColum {
 	TYPE type;
 	std::string name;
 	bool null;
-	VirtualTable *table;
+	VirtualTableM *table;
 	bool autoIncrement;
 public:
 	template<typename Archive>
@@ -30,7 +29,7 @@ public:
 		ar & name & null & autoIncrement & type;
 	};
 	void setTable(void* table);
-	VirtualTable* getTable();
+	VirtualTableM* getTable();
 	std::string getName();
 	bool isNull();
 	bool isAutoIncrement();
@@ -49,7 +48,7 @@ public:
 	  *\param autoIncrement - set the autoIncrement option for this column.
 	  *\It can`t be changed after the construction of the object because to keep integrity.
 	  */
-	VirtColum(std::string name ,TYPE type,VirtualTable* table,bool null, bool autoIncremen);
+	VirtColum(std::string name ,TYPE type,VirtualTableM* table,bool null, bool autoIncremen);
 	virtual ~VirtColum();
 };
 

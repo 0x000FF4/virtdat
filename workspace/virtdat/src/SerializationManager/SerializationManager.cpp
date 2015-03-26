@@ -6,14 +6,14 @@
  */
 
 #include "SerializationManager.h"
-
+using namespace virtdat;
 SerializationManager& SerializationManager::getInstance(){
 	static SerializationManager instance;
 	return instance;
 }
-void SerializationManager::Serialize(std::vector<std::VirtualTable*> *tables) {
+void SerializationManager::Serialize(std::vector<VirtualTable*> *tables) {
 	std::list<VirtualTableMetadata*> metadata;
-	for (std::vector<std::VirtualTable*>::iterator it = tables->begin();
+	for (std::vector<VirtualTable*>::iterator it = tables->begin();
 			it !=  tables->end(); ++it) {
 		metadata.push_back((*it)->getMetadata());
 	}

@@ -7,7 +7,7 @@
 
 #include "VritualIntegrityChecker.h"
 
-namespace std {
+using  namespace virtdat;
 
 VritualIntegrityChecker::VritualIntegrityChecker() {
 	// TODO Auto-generated constructor stub
@@ -18,4 +18,3 @@ VritualIntegrityChecker::~VritualIntegrityChecker() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace std */

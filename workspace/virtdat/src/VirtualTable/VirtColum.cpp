@@ -6,12 +6,11 @@
  */
 
 #include "VirtColum.h"
-
-namespace std {
+using namespace virtdat;
 void VirtColum::setTable(void* table){
-	this->table = (VirtualTable*)table;
+	this->table = (VirtualTableM*)table;
 }
-VirtualTable* VirtColum::getTable(){
+VirtualTableM* VirtColum::getTable(){
 	return this->table;
 }
 bool VirtColum::isNull(){
@@ -25,10 +24,10 @@ bool VirtColum::isAutoIncrement(){
 TYPE VirtColum::getType(){
 	return this->type;
 }
-string VirtColum::getName(){
+std::string VirtColum::getName(){
 	return this->name;
 }
-VirtColum::VirtColum(string name ,TYPE type,VirtualTable *table,bool null = true, bool autoIncrement =  false) {
+VirtColum::VirtColum(std::string name ,TYPE type,VirtualTableM *table,bool null = true, bool autoIncrement =  false) {
 	this->type = type;
 	this->name = name;
 	this->null = null;
@@ -40,4 +39,3 @@ VirtColum::~VirtColum() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace std */

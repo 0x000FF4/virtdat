@@ -7,16 +7,16 @@
 
 #include "VirtualTable.h"
 #include "VirtualTableMetadata.h"
-namespace std {
+using namespace virtdat;
 
 void VirtualTable::setUpdateFunc(
-		void (*updateFunc)(vector<void*> callbackArgs)) {
+		void (*updateFunc)(std::vector<void*> callbackArgs)) {
 	this->updateFunc = updateFunc;
 }
 long long int VirtualTable::getRowCount() {
 	return this->row.size();
 }
-vector<VirtColum> VirtualTable::getColumns() {
+std::vector<VirtColum> VirtualTable::getColumns() {
 	return this->colums;
 }
 VirtualTableMetadata* VirtualTable::getMetadata() {
@@ -34,26 +34,26 @@ short VirtualTable::getColumCount() {
 void VirtualTable::addCell(int column, char* val) {
 	this->row.at(column).push_back(val);
 }
-void VirtualTable::setName(string name) {
+void VirtualTable::setName(std::string name) {
 	this->name = name;
 }
 char* VirtualTable::getCell(int row, int column) {
 	return this->row.at(column).at(row);
 }
 
-string VirtualTable::getName() {
+std::string VirtualTable::getName() {
 	return this->name;
 }
-vector<char*> VirtualTable::getRow(int position) {
+std::vector<char*> VirtualTable::getRow(int position) {
 	return this->row.at(position);
 }
-vector<vector<char*> > VirtualTable::getRow(map<string, string> criterion) {
-	vector<vector<char*> > result;
-	vector<VirtColum>::iterator itCol;
-	for (map<string, string>::iterator it = criterion.begin();
+std::vector<std::vector<char*> > VirtualTable::getRow(std::map<std::string, std::string> criterion) {
+	std::vector<std::vector<char*> > result;
+	std::vector<VirtColum>::iterator itCol;
+	for (std::map<std::string, std::string>::iterator it = criterion.begin();
 			it != criterion.end(); ++it) {
 		//because of broken std::find
-		for (vector<VirtColum>::iterator itCol = colums.begin();
+		for (std::vector<VirtColum>::iterator itCol = colums.begin();
 				itCol != colums.end(); itCol++) {
 			if ((itCol)->getName().compare(it->first) == 0) {
 				break; //the matrix
@@ -62,9 +62,9 @@ vector<vector<char*> > VirtualTable::getRow(map<string, string> criterion) {
 				return result;
 			}
 		}
-		for (vector<char*> a : row) {
+		for (std::vector<char*> a : row) {
 			char* value = a.at(colums.begin() - itCol);
-			string valueCompared = it->second;
+			std::string valueCompared = it->second;
 			if (valueCompared.compare(value)) {
 				result.push_back(a);
 			}
@@ -72,15 +72,14 @@ vector<vector<char*> > VirtualTable::getRow(map<string, string> criterion) {
 	}
 	return result;
 }
-void VirtualTable::addRow(vector<char*> newRow) {
+void VirtualTable::addRow(std::vector<char*> newRow) {
 
-	for (vector<char*>::iterator itRow = newRow.begin(); itRow != newRow.end();
+	for (std::vector<char*>::iterator itRow = newRow.begin(); itRow != newRow.end();
 			++itRow) {
-		for (vector<VirtColum>::iterator it = colums.begin();
+		for (std::vector<VirtColum>::iterator it = colums.begin();
 				it != colums.end(); ++it) {
 			if (it->isNull() && (*itRow) == '\0') {
-				throw invalid_argument(
-						"this column must be notNULL but it is null");
+				throw -1;
 			}
 			if (it->isAutoIncrement() && this->row.size() > 0) {
 				char* block = newRow.back();
@@ -92,16 +91,16 @@ void VirtualTable::addRow(vector<char*> newRow) {
 	this->row.push_back(newRow);
 	updateFunc(callbackArgs);
 }
-void VirtualTable::addTag(string tag) {
+void VirtualTable::addTag(std::string tag) {
 	this->tags.push_back(tag);
 }
-vector<string> VirtualTable::getTags() {
+std::vector<std::string> VirtualTable::getTags() {
 	return this->tags;
 }
 
-VirtualTable::VirtualTable(vector<VirtColum> columns,
-		void (*updateFunc)(vector<void*> callbackArgs), string name,
-		vector<string> tags) {
+VirtualTable::VirtualTable(std::vector<VirtColum> columns,
+		void (*updateFunc)(std::vector<void*> callbackArgs), std::string name,
+		std::vector<std::string> tags) {
 	this->colums.insert(this->colums.end(), columns.begin(), columns.end());
 	this->tags.insert(this->tags.end(), tags.begin(), tags.end());
 	this->name = name;
@@ -109,8 +108,6 @@ VirtualTable::VirtualTable(vector<VirtColum> columns,
 }
 VirtualTable::~VirtualTable() {
 }
-
-} /* namespace std */
 
 namespace boost {
 namespace serialization {

@@ -21,7 +21,7 @@ class VirtualTable {
 protected:
 	std::string name;
 	std::vector<void*> callbackArgs;
-	std::vector<VirtColum*> colums; //holding the meta data about the virtTable;
+	std::vector<VirtColum> colums; //holding the meta data about the virtTable;
 	std::vector<std::vector<char*> > row; //holding the rows;
 	void (*updateFunc)(std::vector<void*> args);
 	std::vector<std::string> tags;
@@ -35,7 +35,7 @@ public:
 	char* getCell(int row, int column);
 	std::vector<char*> getRow(int position);
 	void addCell(int column, char* val);
-	std::vector<virtdat::VirtColum*> getColumns();
+	std::vector<virtdat::VirtColum> getColumns();
 	void updateCell(int row, int column, char *newVal);
 	VirtualTableMetadata* getMetadata();
 	void setUpdateFunc(void (*updateFunc)(std::vector<void*> args));
