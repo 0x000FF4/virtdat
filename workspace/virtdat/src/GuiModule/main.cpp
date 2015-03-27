@@ -8,6 +8,7 @@
 #include "NewVirtTable.h"
 #define WINDOW_WIDTH  1730
 #define WINDOW_HEIGHT 800
+using namespace virtdat;
 CommandAndControll* comAndcontrol;
 std::vector<GtkImage*> tables;
 std::vector<bool> tablesMov;
@@ -28,9 +29,7 @@ bool isMouse1;
 bool labelMov;
 bool isLine;
 bool isLineEnd;
-
 int sx, sy;
-
 char buf[20];
 static void clear_surface(void) {
 	cairo_t *cr;
@@ -203,12 +202,12 @@ void configure_callback(GtkWidget * widget, GtkWindow * window) {
 	gtk_label_set_text(GTK_LABEL(label), buf);
 }
 void createVirtualTable(GtkWidget *widget, gpointer label) {
-	std::vector<std::VirtColum> columns;
-	std::VirtColum column1("column1", std::TYPE::TEXT,NULL, false, false);
-	std::VirtColum column2("column2", std::TYPE::BOOLEAN,NULL, true, false);
-	std::VirtColum column3("column3", std::TYPE::BLOB,NULL, false, true);
-	std::VirtColum column4("column4", std::TYPE::INTEGER,NULL, true, true);
-	std::VirtColum column5("column5", std::TYPE::TEXT,NULL, false, true);
+	std::vector<VirtColum> columns;
+	VirtColum column1("column1", TYPE::TEXT,NULL, false, false);
+	VirtColum column2("column2", TYPE::BOOLEAN,NULL, true, false);
+	VirtColum column3("column3", TYPE::BLOB,NULL, false, true);
+	VirtColum column4("column4", TYPE::INTEGER,NULL, true, true);
+	VirtColum column5("column5", TYPE::TEXT,NULL, false, true);
 	columns.push_back(column1);
 	columns.push_back(column2);
 	columns.push_back(column3);
@@ -335,8 +334,6 @@ int main(int argc, char *argv[]) {
 	gtk_widget_show(darea);
 	gtk_widget_show(window);
 	gtk_widget_show_all(window);
-
 	gtk_main();
-
 	return 0;
-}
+}}

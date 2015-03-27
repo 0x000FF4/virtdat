@@ -12,17 +12,16 @@
 #include "../VirtualTable/VirtualTable.h"
 namespace virtdat{
 class VirtTableHolder {
-	std::vector<std::VirtualTable*> tables;
+	std::vector<VirtualTable*> tables;
 	VirtTableHolder(VirtTableHolder const&) = delete;
 	VirtTableHolder& operator=(const VirtTableHolder&){};
  	VirtTableHolder();
  	virtual ~VirtTableHolder();
 public:
-	void addTable(std::VirtualTable *table);
-	std::vector<std::VirtualTable*>* getTables();
+	void addTable(VirtualTable *table);
+	std::vector<VirtualTable*>* getTables();
 	static VirtTableHolder& getInstance();
 
 };
-]
 
 #endif /* COMMANDANDCONTROLLMODULE_VIRTTABLEHOLDER_H_ */

@@ -9,11 +9,12 @@
 #define GUIMODULE_MAIN_H_
 
 #include <wx/wx.h>
-
+namespace virtdat{
 class MyApp : public wxApp
 {
 
   public:
     virtual bool OnInit();
 };
+}
 #endif /* GUIMODULE_MAIN_H_ */

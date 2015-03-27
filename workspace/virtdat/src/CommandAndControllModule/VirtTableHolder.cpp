@@ -6,10 +6,11 @@
  */
 
 #include "VirtTableHolder.h"
-std::vector<std::VirtualTable*>* VirtTableHolder::getTables(){
+using namespace virtdat;
+std::vector<VirtualTable*>* VirtTableHolder::getTables(){
 	return &(this->tables);
 }
-void VirtTableHolder::addTable(std::VirtualTable *table){
+void VirtTableHolder::addTable(VirtualTable *table){
 	this->tables.push_back(table);
 }
 VirtTableHolder& VirtTableHolder::getInstance(){

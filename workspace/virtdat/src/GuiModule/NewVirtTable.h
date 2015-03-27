@@ -10,6 +10,7 @@
 #include <gtk/gtk.h>
 #include <vector>
 #include "../CommandAndControllModule/CommandAndControll.h"
+namespace virtdat{
 class NewVirtTable {
 	CommandAndControll* comAndcontrol;
 	GtkWidget *new_window;
@@ -21,5 +22,5 @@ public:
 	NewVirtTable();
 	virtual ~NewVirtTable();
 };
-
+}
 #endif /* GUIMODULE_NEWVIRTTABLE_H_ */

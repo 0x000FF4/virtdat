@@ -14,8 +14,8 @@ namespace virtdat{
 class CommandAndControll {
 		//ServerModule server;
 public:
-	void linkTwoColumns(std::VirtColum *firts,std::VirtColum *second);
-	void createTable(std::vector<std::VirtColum> columns ,std::string name = "",std::vector<std::string> tags = {});
+	void linkTwoColumns(VirtColum *firts,VirtColum *second);
+	void createTable(std::vector<VirtColum> columns ,std::string name = "",std::vector<std::string> tags = {});
 	void serializeAllTables();
 	int tableSize();
 	CommandAndControll();

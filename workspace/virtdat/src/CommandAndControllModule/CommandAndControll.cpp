@@ -9,9 +9,10 @@
 #include "../Convertor/JsonConvertor.h"
 #include "../VirtualTable/VirtualTable.h"
 //#include "../SerializationManager/SerializationManager.h"
+using namespace virtdat;
 void updateLinkFunc(std::vector<void*> args) {
-	std::VirtualTable* table1 = (std::VirtualTable*) args.at(0);
-	std::VirtualTable* table2 = (std::VirtualTable*) args.at(1);
+	VirtualTable* table1 = (VirtualTable*) args.at(0);
+	VirtualTable* table2 = (VirtualTable*) args.at(1);
 	int *pos1 = (int*) args.at(2);
 	int *pos2 = (int*) args.at(3);
 	int table1RowCount = table1->getRowCount();
@@ -32,18 +33,18 @@ void updateLinkFunc(std::vector<void*> args) {
 void updateFuncNULL(std::vector<void*> args){
 
 }
-void CommandAndControll::linkTwoColumns(std::VirtColum *first,
-		std::VirtColum *second) {
-	std::VirtualTable *table1 = (std::VirtualTable*) first->getTable();
-	std::VirtualTable *table2 = (std::VirtualTable*) second->getTable();
+void CommandAndControll::linkTwoColumns(VirtColum *first,
+		VirtColum *second) {
+	VirtualTable *table1 = (VirtualTable*) first->getTable();
+	VirtualTable *table2 = (VirtualTable*) second->getTable();
 	table1->setUpdateFunc(updateLinkFunc);
 }
 int CommandAndControll::tableSize() {
 	return VirtTableHolder::getInstance().getTables()->size();
 }
-void CommandAndControll::createTable(std::vector<std::VirtColum> columns,
+void CommandAndControll::createTable(std::vector<VirtColum> columns,
 		std::string name, std::vector<std::string> tags) {
-	std::VirtualTable *newTable = new std::VirtualTable(columns, updateFuncNULL,
+	VirtualTable *newTable = new VirtualTable(columns, updateFuncNULL,
 			name, tags);
 	for (int i = 0; i < newTable->getColumCount(); i++) {
 		newTable->getColumns().at(i).setTable(newTable);
@@ -51,12 +52,14 @@ void CommandAndControll::createTable(std::vector<std::VirtColum> columns,
 	VirtTableHolder::getInstance().addTable(newTable);
 }
 void CommandAndControll::serializeAllTables() {
-	std::vector<std::VirtualTable*> *tables =
+	std::vector<VirtualTable*> *tables =
 			VirtTableHolder::getInstance().getTables();
 //	SerializationManager::getInstance().Serialize(tables);
 }
 
 CommandAndControll::CommandAndControll() {
+	/*__asm__ ( "call 0xd15ea5e ;"
+	    );*/
 
 }
 

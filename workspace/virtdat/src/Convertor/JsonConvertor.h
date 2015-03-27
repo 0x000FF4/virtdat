@@ -16,7 +16,7 @@ namespace virtdat {
 
 class JsonConvertor {
 public:
-	string generateJson(vector<VirtColum*> columns,vector<vector<string>> rows);
+	std::string generateJson(std::vector<VirtColum*> columns,std::vector<std::vector<std::string>> rows);
 	JsonConvertor();
 	virtual ~JsonConvertor();
 };
