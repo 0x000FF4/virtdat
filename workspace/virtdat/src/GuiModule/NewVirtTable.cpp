@@ -15,7 +15,7 @@ std::vector<GtkWidget*> autoIncrs;
 std::vector<GtkWidget*> isNulls;
 std::vector<GtkComboBoxText*> types;
 //NewVirtTable* NewVirtTable::ints = 0;
-void createTableButton(GtkWidget *widget, gpointer data) {
+void NewVirtTable::createTableButton(GtkWidget *widget, gpointer data) {
 	std::vector<VirtColum> columns;
 	std::vector<GtkEntry*>::iterator e = entries.begin();
 	auto a = autoIncrs.begin();

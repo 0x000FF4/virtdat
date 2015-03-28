@@ -16,8 +16,9 @@ class NewVirtTable {
 	GtkWidget *new_window;
 	static NewVirtTable* ints;
 	void (*tableDone)();
+
 public:
-	 friend  void createTableButton(GtkWidget *widget, gpointer data) ;
+	void createTableButton(GtkWidget *widget, gpointer data) ;
 	void createNewTable(CommandAndControll* comAndcontrol,void(*tableDone)());
 	NewVirtTable();
 	virtual ~NewVirtTable();
