@@ -140,7 +140,7 @@ void NewVirtTable::createNewTable(CommandAndControll* comAndcontrol,void(*tableD
 					| GDK_BUTTON_RELEASE_MASK | GDK_POINTER_MOTION_MASK
 					| GDK_POINTER_MOTION_HINT_MASK);
 	g_signal_connect(newColumn, "clicked", G_CALLBACK(callBack), NULL);
-	g_signal_connect(createTable, "clicked", G_CALLBACK(createTableButton), NULL);
+	g_signal_connect(createTable, "clicked", G_CALLBACK(NewVirtTable::createTableButton), NULL);
 	gtk_widget_show_all(new_window);
 
 	gtk_main();
@@ -151,6 +151,5 @@ NewVirtTable::NewVirtTable() {
 }
 
 NewVirtTable::~NewVirtTable() {
-	// TODO Auto-generated destructor stub
-}
 
+}}

@@ -18,8 +18,8 @@ class NewVirtTable {
 	void (*tableDone)();
 
 public:
-	void createTableButton(GtkWidget *widget, gpointer data) ;
-	void createNewTable(CommandAndControll* comAndcontrol,void(*tableDone)());
+	void static createTableButton(GtkWidget *widget, gpointer data) ;
+	void  createNewTable(CommandAndControll* comAndcontrol,void(*tableDone)());
 	NewVirtTable();
 	virtual ~NewVirtTable();
 };

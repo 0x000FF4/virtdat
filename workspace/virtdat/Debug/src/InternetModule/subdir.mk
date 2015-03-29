@@ -7,28 +7,44 @@ O_SRCS += \
 ../src/InternetModule/ClientModule.o \
 ../src/InternetModule/Commands.o \
 ../src/InternetModule/MainServer.o \
-../src/InternetModule/ServerModule.o 
+../src/InternetModule/ServerModule.o \
+../src/InternetModule/WebInterface.o 
 
 CPP_SRCS += \
 ../src/InternetModule/ClientModule.cpp \
 ../src/InternetModule/Commands.cpp \
 ../src/InternetModule/MainServer.cpp \
 ../src/InternetModule/ServerModule.cpp \
-../src/InternetModule/WebInterface.cpp 
+../src/InternetModule/WebInterface.cpp \
+../src/InternetModule/connection.cpp \
+../src/InternetModule/connection_manager.cpp \
+../src/InternetModule/reply.cpp \
+../src/InternetModule/request_handler.cpp \
+../src/InternetModule/request_parser.cpp 
 
 OBJS += \
 ./src/InternetModule/ClientModule.o \
 ./src/InternetModule/Commands.o \
 ./src/InternetModule/MainServer.o \
 ./src/InternetModule/ServerModule.o \
-./src/InternetModule/WebInterface.o 
+./src/InternetModule/WebInterface.o \
+./src/InternetModule/connection.o \
+./src/InternetModule/connection_manager.o \
+./src/InternetModule/reply.o \
+./src/InternetModule/request_handler.o \
+./src/InternetModule/request_parser.o 
 
 CPP_DEPS += \
 ./src/InternetModule/ClientModule.d \
 ./src/InternetModule/Commands.d \
 ./src/InternetModule/MainServer.d \
 ./src/InternetModule/ServerModule.d \
-./src/InternetModule/WebInterface.d 
+./src/InternetModule/WebInterface.d \
+./src/InternetModule/connection.d \
+./src/InternetModule/connection_manager.d \
+./src/InternetModule/reply.d \
+./src/InternetModule/request_handler.d \
+./src/InternetModule/request_parser.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

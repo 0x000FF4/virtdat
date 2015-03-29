@@ -3,10 +3,6 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
-O_SRCS += \
-../src/CommandAndControllModule/CommandAndControll.o \
-../src/CommandAndControllModule/VirtTableHolder.o 
-
 CPP_SRCS += \
 ../src/CommandAndControllModule/CommandAndControll.cpp \
 ../src/CommandAndControllModule/VirtTableHolder.cpp 
