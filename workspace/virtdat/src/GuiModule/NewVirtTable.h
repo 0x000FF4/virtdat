@@ -9,6 +9,7 @@
 #define GUIMODULE_NEWVIRTTABLE_H_
 #include <gtk/gtk.h>
 #include <vector>
+#include "../VirtualTable/VirtColum.h"
 #include "../CommandAndControllModule/CommandAndControll.h"
 namespace virtdat{
 class NewVirtTable {

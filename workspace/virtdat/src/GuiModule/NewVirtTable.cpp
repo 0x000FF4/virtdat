@@ -6,7 +6,6 @@
  */
 
 #include "NewVirtTable.h"
-using namespace virtdat;
 int numberOfColumns;
 GtkGrid *table;
 GtkEntry *tableName;
@@ -15,8 +14,8 @@ std::vector<GtkWidget*> autoIncrs;
 std::vector<GtkWidget*> isNulls;
 std::vector<GtkComboBoxText*> types;
 //NewVirtTable* NewVirtTable::ints = 0;
-void NewVirtTable::createTableButton(GtkWidget *widget, gpointer data) {
-	std::vector<VirtColum> columns;
+void virtdat::NewVirtTable::createTableButton(GtkWidget *widget, gpointer data) {
+	std::vector<virtdat::VirtColum> columns;
 	std::vector<GtkEntry*>::iterator e = entries.begin();
 	auto a = autoIncrs.begin();
 	auto i = isNulls.begin();
@@ -47,7 +46,7 @@ void NewVirtTable::createTableButton(GtkWidget *widget, gpointer data) {
 		}
 	}
 	std::vector<std::string> tags;
-	NewVirtTable::ints->comAndcontrol->createTable(columns,gtk_entry_get_text(tableName),tags);
+//	NewVirtTable::ints->comAndcontrol->createTable(columns,gtk_entry_get_text(tableName),tags);
 	gtk_window_close(GTK_WINDOW(NewVirtTable::ints->new_window));
 	NewVirtTable::ints->tableDone();
 
@@ -75,7 +74,7 @@ void callBack(GtkWidget *widget, gpointer data) {
 	gtk_widget_show(autoIncrs.back());
 	gtk_widget_show(isNulls.back());
 }
-void NewVirtTable::createNewTable(CommandAndControll* comAndcontrol,void(*tableDone)()) {
+void virtdat::NewVirtTable::createNewTable(CommandAndControll* comAndcontrol,void(*tableDone)()) {
 
 	GtkButton *newColumn;
 	GtkButton *createTable;
@@ -145,11 +144,12 @@ void NewVirtTable::createNewTable(CommandAndControll* comAndcontrol,void(*tableD
 
 	gtk_main();
 }
-NewVirtTable::NewVirtTable() {
+virtdat::NewVirtTable::NewVirtTable() {
 	NewVirtTable::ints = this;
 
 }
 
-NewVirtTable::~NewVirtTable() {
+virtdat::NewVirtTable::~NewVirtTable() {
 
-}}
+}
+

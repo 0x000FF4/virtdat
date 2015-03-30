@@ -23,5 +23,5 @@ public:
 	static VirtTableHolder& getInstance();
 
 };
-
+}
 #endif /* COMMANDANDCONTROLLMODULE_VIRTTABLEHOLDER_H_ */

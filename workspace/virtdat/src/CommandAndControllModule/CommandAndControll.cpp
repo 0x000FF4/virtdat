@@ -6,13 +6,14 @@
  */
 
 #include "CommandAndControll.h"
-#include "../Convertor/JsonConvertor.h"
-#include "../VirtualTable/VirtualTable.h"
+//#include "../Convertor/JsonConvertor.h"
+//#include "../VirtualTable/VirtualTable.h"
 //#include "../SerializationManager/SerializationManager.h"
-using namespace virtdat;
+/*
 void updateLinkFunc(std::vector<void*> args) {
-	VirtualTable* table1 = (VirtualTable*) args.at(0);
-	VirtualTable* table2 = (VirtualTable*) args.at(1);
+
+	virtdat::VirtualTable* table1 = (virtdat::VirtualTable*) args.at(0);
+	virtdat::VirtualTable* table2 = (virtdat::VirtualTable*) args.at(1);
 	int *pos1 = (int*) args.at(2);
 	int *pos2 = (int*) args.at(3);
 	int table1RowCount = table1->getRowCount();
@@ -23,7 +24,7 @@ void updateLinkFunc(std::vector<void*> args) {
 			char* chr2 = table2->getCell(i, *pos2);
 			if (strcmp(chr1, chr2)) {
 				table2->updateCell(i, *pos2, chr1);
-			}
+}			
 		} catch (const std::out_of_range& oor) {
 			table2->addCell(*pos2, chr1);
 		}
@@ -33,8 +34,8 @@ void updateLinkFunc(std::vector<void*> args) {
 void updateFuncNULL(std::vector<void*> args){
 
 }
-void CommandAndControll::linkTwoColumns(VirtColum *first,
-		VirtColum *second) {
+void CommandAndControll::linkTwoColumns(virtdat::VirtColum *first,
+		virtdat::VirtColum *second) {
 	VirtualTable *table1 = (VirtualTable*) first->getTable();
 	VirtualTable *table2 = (VirtualTable*) second->getTable();
 	table1->setUpdateFunc(updateLinkFunc);
@@ -56,14 +57,12 @@ void CommandAndControll::serializeAllTables() {
 			VirtTableHolder::getInstance().getTables();
 //	SerializationManager::getInstance().Serialize(tables);
 }
-
+*/
+/*
 CommandAndControll::CommandAndControll() {
-	/*__asm__ ( "call 0xd15ea5e ;"
-	    );*/
-
-}
-
+}*/
+/*
 CommandAndControll::~CommandAndControll() {
-	// TODO Auto-generated destructor stub
+	
 }
-
+*/

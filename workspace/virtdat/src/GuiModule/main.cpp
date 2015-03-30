@@ -6,6 +6,7 @@
 #include "LineParams.h"
 #include "../CommandAndControllModule/CommandAndControll.h"
 #include "NewVirtTable.h"
+#include "../VirtualTable/VirtColum.h"
 #define WINDOW_WIDTH  1730
 #define WINDOW_HEIGHT 800
 using namespace virtdat;
@@ -202,7 +203,7 @@ void configure_callback(GtkWidget * widget, GtkWindow * window) {
 	gtk_label_set_text(GTK_LABEL(label), buf);
 }
 void createVirtualTable(GtkWidget *widget, gpointer label) {
-	std::vector<VirtColum> columns;
+	std::vector<virtdat::VirtColum> columns;
 	VirtColum column1("column1", TYPE::TEXT,NULL, false, false);
 	VirtColum column2("column2", TYPE::BOOLEAN,NULL, true, false);
 	VirtColum column3("column3", TYPE::BLOB,NULL, false, true);
@@ -214,7 +215,7 @@ void createVirtualTable(GtkWidget *widget, gpointer label) {
 	columns.push_back(column4);
 	columns.push_back(column5);
 
-	comAndcontrol->createTable(columns);
+//	comAndcontrol->createTable(columns);
 	GtkImage *img = GTK_IMAGE(gtk_image_new_from_file("virtTable.png"));
 	gtk_widget_set_size_request(GTK_WIDGET(img), 50, 50);
 	//gtk_fixed_put( (GtkFixed*)fixed,GTK_WIDGET(img),0,0 );
@@ -336,4 +337,4 @@ int main(int argc, char *argv[]) {
 	gtk_widget_show_all(window);
 	gtk_main();
 	return 0;
-}}
+}

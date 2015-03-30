@@ -10,9 +10,8 @@
 #include <string>
 #include <iostream>
 #include "../VirtualTable/VirtColum.h"
-using namespace virtdat;
-
-std::string JsonConvertor::generateJson(std::vector<VirtColum*> columns,std::vector<std::vector<std::string>> rows){
+using namespace std;
+std::string virtdat::JsonConvertor::generateJson(std::vector<virtdat::VirtColum*> columns,std::vector<std::vector<std::string>> rows){
 	rapidjson::Document d;
 	rapidjson::Document::AllocatorType& a = d.GetAllocator();
 	std::vector<rapidjson::Value*> columnsJson;// make a copy
@@ -44,12 +43,12 @@ std::string JsonConvertor::generateJson(std::vector<VirtColum*> columns,std::vec
     return buffer.GetString();
 }
 
-JsonConvertor::JsonConvertor() {
+virtdat::JsonConvertor::JsonConvertor() {
 	// TODO Auto-generated constructor stub
 
 }
 
-JsonConvertor::~JsonConvertor() {
+virtdat::JsonConvertor::~JsonConvertor() {
 	// TODO Auto-generated destructor stub
 }
 

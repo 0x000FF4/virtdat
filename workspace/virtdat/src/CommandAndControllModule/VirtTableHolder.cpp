@@ -6,7 +6,8 @@
  */
 
 #include "VirtTableHolder.h"
-using namespace virtdat;
+//using namespace virtdat;
+/*
 std::vector<VirtualTable*>* VirtTableHolder::getTables(){
 	return &(this->tables);
 }
@@ -24,4 +25,4 @@ VirtTableHolder::VirtTableHolder() {
 VirtTableHolder::~VirtTableHolder() {
 	// TODO Auto-generated destructor stub
 }
-
+*/
