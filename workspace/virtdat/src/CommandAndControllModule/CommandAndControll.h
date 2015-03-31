@@ -7,13 +7,10 @@
 
 #ifndef COMMANDANDCONTROLLMODULE_COMMANDANDCONTROLL_H_
 #define COMMANDANDCONTROLLMODULE_COMMANDANDCONTROLL_H_
-//#include "VirtTableHolder.h"
-//#include "../InternetModule/ServerModule.h"
-//#include <vector>
-//#include <string>
-class CommandAndControll{
-};
-/*:
+#include "VirtTableHolder.h"
+#include "../InternetModule/ServerModule.h"
+#include <vector>
+#include <string>
 class CommandAndControll {
 		//ServerModule server;
 public:
@@ -24,5 +21,5 @@ public:
 	CommandAndControll();
 	virtual ~CommandAndControll();
 };
-*/
+
 #endif /* COMMANDANDCONTROLLMODULE_COMMANDANDCONTROLL_H_ */

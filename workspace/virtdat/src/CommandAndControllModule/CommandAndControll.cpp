@@ -6,10 +6,10 @@
  */
 
 #include "CommandAndControll.h"
-//#include "../Convertor/JsonConvertor.h"
-//#include "../VirtualTable/VirtualTable.h"
-//#include "../SerializationManager/SerializationManager.h"
-/*
+#include "../Convertor/JsonConvertor.h"
+#include "../VirtualTable/VirtualTable.h"
+#include "../SerializationManager/SerializationManager.h"
+
 void updateLinkFunc(std::vector<void*> args) {
 
 	virtdat::VirtualTable* table1 = (virtdat::VirtualTable*) args.at(0);
@@ -36,33 +36,33 @@ void updateFuncNULL(std::vector<void*> args){
 }
 void CommandAndControll::linkTwoColumns(virtdat::VirtColum *first,
 		virtdat::VirtColum *second) {
-	VirtualTable *table1 = (VirtualTable*) first->getTable();
-	VirtualTable *table2 = (VirtualTable*) second->getTable();
+	virtdat::VirtualTable *table1 = (virtdat::VirtualTable*) first->getTable();
+	virtdat::VirtualTable *table2 = (virtdat::VirtualTable*) second->getTable();
 	table1->setUpdateFunc(updateLinkFunc);
 }
 int CommandAndControll::tableSize() {
-	return VirtTableHolder::getInstance().getTables()->size();
+	return virtdat::VirtTableHolder::getInstance().getTables()->size();
 }
-void CommandAndControll::createTable(std::vector<VirtColum> columns,
+void CommandAndControll::createTable(std::vector<virtdat::VirtColum> columns,
 		std::string name, std::vector<std::string> tags) {
-	VirtualTable *newTable = new VirtualTable(columns, updateFuncNULL,
+	virtdat::VirtualTable *newTable = new virtdat::VirtualTable(columns, updateFuncNULL,
 			name, tags);
 	for (int i = 0; i < newTable->getColumCount(); i++) {
 		newTable->getColumns().at(i).setTable(newTable);
 	}
-	VirtTableHolder::getInstance().addTable(newTable);
+	virtdat::VirtTableHolder::getInstance().addTable(newTable);
 }
 void CommandAndControll::serializeAllTables() {
-	std::vector<VirtualTable*> *tables =
-			VirtTableHolder::getInstance().getTables();
-//	SerializationManager::getInstance().Serialize(tables);
+	std::vector<virtdat::VirtualTable*> *tables =
+			virtdat::VirtTableHolder::getInstance().getTables();
+	virtdat::SerializationManager::getInstance().Serialize(tables);
 }
-*/
-/*
+
+
 CommandAndControll::CommandAndControll() {
-}*/
-/*
+}
+
 CommandAndControll::~CommandAndControll() {
 	
 }
-*/
+

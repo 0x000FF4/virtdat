@@ -10,7 +10,6 @@
 #include <string>
 #include <iostream>
 #include "../VirtualTable/VirtColum.h"
-using namespace std;
 std::string virtdat::JsonConvertor::generateJson(std::vector<virtdat::VirtColum*> columns,std::vector<std::vector<std::string>> rows){
 	rapidjson::Document d;
 	rapidjson::Document::AllocatorType& a = d.GetAllocator();

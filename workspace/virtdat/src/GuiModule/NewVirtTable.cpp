@@ -13,7 +13,7 @@ std::vector<GtkEntry*> entries;
 std::vector<GtkWidget*> autoIncrs;
 std::vector<GtkWidget*> isNulls;
 std::vector<GtkComboBoxText*> types;
-//NewVirtTable* NewVirtTable::ints = 0;
+virtdat::NewVirtTable* virtdat::NewVirtTable::ints = 0;
 void virtdat::NewVirtTable::createTableButton(GtkWidget *widget, gpointer data) {
 	std::vector<virtdat::VirtColum> columns;
 	std::vector<GtkEntry*>::iterator e = entries.begin();
@@ -46,7 +46,7 @@ void virtdat::NewVirtTable::createTableButton(GtkWidget *widget, gpointer data) 
 		}
 	}
 	std::vector<std::string> tags;
-//	NewVirtTable::ints->comAndcontrol->createTable(columns,gtk_entry_get_text(tableName),tags);
+	NewVirtTable::ints->comAndcontrol->createTable(columns,gtk_entry_get_text(tableName),tags);
 	gtk_window_close(GTK_WINDOW(NewVirtTable::ints->new_window));
 	NewVirtTable::ints->tableDone();
 

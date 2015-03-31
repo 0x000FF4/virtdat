@@ -6,23 +6,23 @@
  */
 
 #include "VirtTableHolder.h"
-//using namespace virtdat;
-/*
-std::vector<VirtualTable*>* VirtTableHolder::getTables(){
+
+
+std::vector<virtdat::VirtualTable*>* virtdat::VirtTableHolder::getTables(){
 	return &(this->tables);
 }
-void VirtTableHolder::addTable(VirtualTable *table){
+void virtdat::VirtTableHolder::addTable(virtdat::VirtualTable *table){
 	this->tables.push_back(table);
 }
-VirtTableHolder& VirtTableHolder::getInstance(){
-	static VirtTableHolder instance;
+virtdat::VirtTableHolder& virtdat::VirtTableHolder::getInstance(){
+	static virtdat::VirtTableHolder instance;
 	return instance;
 }
-VirtTableHolder::VirtTableHolder() {
+virtdat::VirtTableHolder::VirtTableHolder() {
 
 }
 
-VirtTableHolder::~VirtTableHolder() {
+virtdat::VirtTableHolder::~VirtTableHolder() {
 	// TODO Auto-generated destructor stub
 }
-*/
+
