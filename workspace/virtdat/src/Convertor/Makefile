@@ -1,4 +1,8 @@
-all: JsonConvertor
+all: JsonConvertor XmlConvertor
+
+XmlConvertor:
+	c++ -std=c++11 -c XmlConvertor.cpp
+
 JsonConvertor:
 	c++  -I/home/x000ff4/Свалени/rapidjson-master/include/ -std=c++11 -c JsonConvertor.cpp
 
