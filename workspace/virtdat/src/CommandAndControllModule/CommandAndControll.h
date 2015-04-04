@@ -9,11 +9,14 @@
 #define COMMANDANDCONTROLLMODULE_COMMANDANDCONTROLL_H_
 #include "VirtTableHolder.h"
 #include "../InternetModule/ServerModule.h"
+//#include "../InternetModule/server_http.h"
 #include <vector>
 #include <string>
+namespace virtdat{
 class CommandAndControll {
-		//ServerModule server;
+	
 public:
+	void startServer(int port);
 	void linkTwoColumns(virtdat::VirtColum *firts,virtdat::VirtColum *second);
 	void createTable(std::vector<virtdat::VirtColum> columns ,std::string name = "",std::vector<std::string> tags = {});
 	void serializeAllTables();
@@ -21,5 +24,5 @@ public:
 	CommandAndControll();
 	virtual ~CommandAndControll();
 };
-
+}
 #endif /* COMMANDANDCONTROLLMODULE_COMMANDANDCONTROLL_H_ */

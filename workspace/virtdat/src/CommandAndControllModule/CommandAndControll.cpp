@@ -32,18 +32,22 @@ void updateLinkFunc(std::vector<void*> args) {
 	}
 }
 void updateFuncNULL(std::vector<void*> args){
-
+	//http::server::server server("127.0.0.1","2000","/home/x000ff4/workspace/");
+	//server.run();
 }
-void CommandAndControll::linkTwoColumns(virtdat::VirtColum *first,
+void virtdat::CommandAndControll::startServer(int port){
+ 
+}
+void virtdat::CommandAndControll::linkTwoColumns(virtdat::VirtColum *first,
 		virtdat::VirtColum *second) {
 	virtdat::VirtualTable *table1 = (virtdat::VirtualTable*) first->getTable();
 	virtdat::VirtualTable *table2 = (virtdat::VirtualTable*) second->getTable();
 	table1->setUpdateFunc(updateLinkFunc);
 }
-int CommandAndControll::tableSize() {
+int virtdat::CommandAndControll::tableSize() {
 	return virtdat::VirtTableHolder::getInstance().getTables()->size();
 }
-void CommandAndControll::createTable(std::vector<virtdat::VirtColum> columns,
+void virtdat::CommandAndControll::createTable(std::vector<virtdat::VirtColum> columns,
 		std::string name, std::vector<std::string> tags) {
 	virtdat::VirtualTable *newTable = new virtdat::VirtualTable(columns, updateFuncNULL,
 			name, tags);
@@ -52,17 +56,17 @@ void CommandAndControll::createTable(std::vector<virtdat::VirtColum> columns,
 	}
 	virtdat::VirtTableHolder::getInstance().addTable(newTable);
 }
-void CommandAndControll::serializeAllTables() {
+void virtdat::CommandAndControll::serializeAllTables() {
 	std::vector<virtdat::VirtualTable*> *tables =
 			virtdat::VirtTableHolder::getInstance().getTables();
 	virtdat::SerializationManager::getInstance().Serialize(tables);
 }
 
 
-CommandAndControll::CommandAndControll() {
+virtdat::CommandAndControll::CommandAndControll() {
 }
 
-CommandAndControll::~CommandAndControll() {
+virtdat::CommandAndControll::~CommandAndControll() {
 	
 }
 
