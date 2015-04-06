@@ -9,7 +9,8 @@
 #define COMMANDANDCONTROLLMODULE_COMMANDANDCONTROLL_H_
 #include "VirtTableHolder.h"
 #include "../InternetModule/ServerModule.h"
-//#include "../InternetModule/server_http.h"
+#include "../InternetModule/session.h"
+#include "../InternetModule/server.h"
 #include <vector>
 #include <string>
 namespace virtdat{

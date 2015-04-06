@@ -4,6 +4,8 @@
 #include <utility>
 #include <boost/asio.hpp>
 #include <boost/system/error_code.hpp>
+#ifndef SESSION_H
+#define SESSION_H
 namespace virtdat{
  class session : public std::enable_shared_from_this<session>{
 	boost::asio::ip::tcp::socket socket_;
@@ -16,3 +18,4 @@ namespace virtdat{
 	void start();
 	};
 }
+#endif

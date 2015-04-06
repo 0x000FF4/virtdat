@@ -1,4 +1,6 @@
-all: MainServer ServerModule ClientModule Commands session 
+all: MainServer ServerModule ClientModule Commands session server
+server:
+	c++ server.cpp -g -std=c++11 -c 
 MainServer:
 	c++ MainServer.cpp -std=c++11 -c -I /home/x000ff4/Свалени/openssl-1.0.2/include
 ServerModule:

@@ -32,11 +32,11 @@ void updateLinkFunc(std::vector<void*> args) {
 	}
 }
 void updateFuncNULL(std::vector<void*> args){
-	//http::server::server server("127.0.0.1","2000","/home/x000ff4/workspace/");
-	//server.run();
+
 }
 void virtdat::CommandAndControll::startServer(int port){
- 
+ 	boost::asio::io_service io_service;
+	virtdat::server s(io_service,2000);
 }
 void virtdat::CommandAndControll::linkTwoColumns(virtdat::VirtColum *first,
 		virtdat::VirtColum *second) {
@@ -64,6 +64,7 @@ void virtdat::CommandAndControll::serializeAllTables() {
 
 
 virtdat::CommandAndControll::CommandAndControll() {
+	this->startServer(2000);
 }
 
 virtdat::CommandAndControll::~CommandAndControll() {

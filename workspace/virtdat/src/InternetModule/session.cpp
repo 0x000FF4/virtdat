@@ -21,8 +21,10 @@ void virtdat::session::do_write(std::size_t length){
 	[this,self](boost::system::error_code ec,std::size_t){
 		if(!ec)
 		{
-			do_read();
-		}	
+			//do_read();
+		}
+		do_read();	
 	});
+
 }
 
