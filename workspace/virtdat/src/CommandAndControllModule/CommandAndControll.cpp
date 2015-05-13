@@ -4,7 +4,7 @@
  *  Created on: 28.02.2015 г.
  *      Author: x000ff4
  */
-
+#include "../IOModule/mysqlMod.h"
 #include "CommandAndControll.h"
 #include "../Convertor/JsonConvertor.h"
 #include "../VirtualTable/VirtualTable.h"
@@ -36,7 +36,9 @@ void updateFuncNULL(std::vector<void*> args){
 }
 void virtdat::CommandAndControll::startServer(int port){
  	boost::asio::io_service io_service;
-	virtdat::server s(io_service,2000);
+	std::cout << "port";
+	virtdat::server s(io_service,port);
+
 }
 void virtdat::CommandAndControll::linkTwoColumns(virtdat::VirtColum *first,
 		virtdat::VirtColum *second) {
@@ -65,6 +67,15 @@ void virtdat::CommandAndControll::serializeAllTables() {
 
 virtdat::CommandAndControll::CommandAndControll() {
 	this->startServer(2000);
+	mysqlMod sql;
+        std::vector<char**> result;
+	sql.connect("127.0.0.1","root","1","databaseTwo");
+        std::vector<std::string> columns;
+        columns.push_back("tableOnecol");
+        result = sql.select(&columns,"tableOne");
+        std::cout<<std::endl<<"size result:"<<result.size();
+        std::cout.flush();
+        sql.closeConnection();
 }
 
 virtdat::CommandAndControll::~CommandAndControll() {

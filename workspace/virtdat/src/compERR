@@ -1,0 +1,36 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Компилиране и асемблиране на модула за виртуалните таблици !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+cd VirtualTable; make
+make[1]: Entering directory `/home/x000ff4/workspace/virtdat/src/VirtualTable'
+c++ VirtColum.cpp -std=c++11 -c
+c++ VirtualTable.cpp -std=c++11 -c
+c++ VirtualTableMetadata.cpp -std=c++11 -c
+c++ VritualIntegrityChecker.cpp -std=c++11 -c
+make[1]: Leaving directory `/home/x000ff4/workspace/virtdat/src/VirtualTable'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Компилиране и асемблиране на модула за съхранение и прехвърляне на мета данни !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+cd SerializationManager; make
+make[1]: Entering directory `/home/x000ff4/workspace/virtdat/src/SerializationManager'
+c++ SerializationManager.cpp -std=c++11 -c
+make[1]: Leaving directory `/home/x000ff4/workspace/virtdat/src/SerializationManager'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Компилиране и асемблиране на модула за интернет комуникация !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+cd InternetModule; make
+make[1]: Entering directory `/home/x000ff4/workspace/virtdat/src/InternetModule'
+c++ MainServer.cpp -std=c++11 -c -I /home/x000ff4/Свалени/openssl-1.0.2/include
+c++ ServerModule.cpp -std=c++11 -c -I /home/x000ff4/Свалени/openssl-1.0.2/include
+c++ ClientModule.cpp -std=c++11 -c -I /home/x000ff4/Свалени/openssl-1.0.2/include
+c++ Commands.cpp -std=c++11 -c
+c++ session.cpp -std=c++11 -c
+c++ server.cpp -g -std=c++11 -c 
+make[1]: Leaving directory `/home/x000ff4/workspace/virtdat/src/InternetModule'
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! Компилиранне и асемблиране на модула за връзка с база данни и неструктурирани данни !!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+cd IOModule; make
+make[1]: Entering directory `/home/x000ff4/workspace/virtdat/src/IOModule'
+g++ -c -g -L/home/x000ff4/Свалени/mysql-connector-c++-1.0.5-linux-glibc2.3-ia64-64bit/lib/ -I /home/x000ff4/Свалени/mysql-connector-c++-1.0.5-linux-glibc2.3-ia64-64bit/include/ simpleSQL.cpp
+make[1]: Leaving directory `/home/x000ff4/workspace/virtdat/src/IOModule'

@@ -23,8 +23,8 @@ protected:
 	std::vector<void*> callbackArgs;
 	std::vector<VirtColum> colums; //holding the meta data about the virtTable;
 	std::vector<std::vector<char*> > row; //holding the rows;
-	void (*updateFunc)(std::vector<void*> args);
-	std::vector<std::string> tags;
+	void (*updateFunc)(std::vector<void*> args);//callback func
+	std::vector<std::string> tags;// the tags for search and logic
 
 public:
 	void setName(std::string name);

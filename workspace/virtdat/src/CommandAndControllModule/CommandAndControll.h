@@ -13,6 +13,7 @@
 #include "../InternetModule/server.h"
 #include <vector>
 #include <string>
+#include <iostream>
 namespace virtdat{
 class CommandAndControll {
 	

@@ -20,9 +20,9 @@ enum TYPE{
 class VirtColum {
 	TYPE type;
 	std::string name;
-	bool null;
-	VirtualTableM *table;
-	bool autoIncrement;
+	bool null;// can the column be null
+	VirtualTableM *table;// pointer to the table in wich this instance is holder:.
+	bool autoIncrement;// will the column be autoIncr
 public:
 	template<typename Archive>
 	void serialize(Archive& ar, const unsigned version) {
